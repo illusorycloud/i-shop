@@ -11,6 +11,15 @@ public class User implements Serializable {
     private String username;
     private String password;
     private String email;
+    private boolean isRememberMe;
+
+    public boolean isRememberMe() {
+        return isRememberMe;
+    }
+
+    public void setRememberMe(boolean rememberMe) {
+        isRememberMe = rememberMe;
+    }
 
     @Override
     public String toString() {

@@ -2,15 +2,16 @@ package com.illusory.i.shop.dao.impl;
 
 import com.illusory.i.shop.dao.UserDao;
 import com.illusory.i.shop.entity.User;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 /**
- * @author Administrator
+ * @author illusory
  * @version 1.0.0
  * @date 2019/3/23 0023
  */
+@Repository(value = "userDao")
 public class UserDaoImpl implements UserDao {
     private static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
 
