@@ -70,5 +70,5 @@ public class LoginController {
         request.getSession().invalidate();
         return login(request);
     }
-    
+
 }
