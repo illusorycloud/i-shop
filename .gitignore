@@ -25,3 +25,5 @@ hs_err_pid*
 /classes/
 /.idea/
 /i-shop.iml
+*.iml
+**/target/
