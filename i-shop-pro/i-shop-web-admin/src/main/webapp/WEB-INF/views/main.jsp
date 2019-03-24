@@ -11,6 +11,11 @@
     <title>Title</title>
 </head>
 <body>
-首页
+Welcome To I Shop
+${email}
+${password}
+<div>
+    <a href="logout" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+</div>
 </body>
 </html>
