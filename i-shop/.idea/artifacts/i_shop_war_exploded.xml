@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="i-shop:war exploded">
+  <artifact type="exploded-war" build-on-make="true" name="i-shop:war exploded">
     <output-path>$PROJECT_DIR$/classes/artifacts/i_shop_war_exploded</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
@@ -21,6 +21,13 @@
           <element id="library" level="project" name="Maven: org.slf4j:jul-to-slf4j:1.7.25" />
           <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
           <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.5" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.3.17.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.3.17.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.17.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.17.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.3.17.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:4.3.17.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.3.17.RELEASE" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="i-shop/web/Web" />
