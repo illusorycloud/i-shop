@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.illusory.i.shop.web.admin.dao.TbUserDao">
+
+    <sql id="TbUserColumns">
+         a.id,
+         a.username,
+         a.password,
+         a.phone,
+         a.email,
+         a.created,
+         a.updated
+    </sql>
+
+    <select id="selectAll" resultType="TbUser">
+        SELECT
+        <include refid="TbUserColumns" />
+        FROM
+        tb_user AS a
+    </select>
+    <insert id="insert">
+    INSERT INTO `ishop`.`tb_user` (
+      `username`,
+      `password`,
+      `phone`,
+      `email`,
+      `created`,
+      `updated`
+    )
+    VALUES
+      (
+        #{username},
+        #{password},
+        #{phone},
+        #{email},
+        #{created},
+        #{updated}
+      )
+     </insert>
+
+    <delete id="delete">
+        DELETE  FROM tb_user where  id=#{id}
+    </delete>
+
+    <select id="getById" resultType="TbUser">
+        SELECT
+        <include refid="TbUserColumns" />
+
+        FROM
+        tb_user AS a
+        WHERE a.id=#{id}
+    </select>
+
+    <update id="update">
+        UPDATE
+         tb_user
+        SET
+          username = #{username},
+          password = #{password},
+          phone = #{phone},
+          email = #{email},
+          updated = #{updated}
+        WHERE
+          id = #{id};
+    </update>
+
+    <select id="selectByUsername" resultType="TbUser">
+        SELECT
+        <include refid="TbUserColumns" />
+
+        FROM
+        tb_user AS a
+        WHERE a.username LIKE CONCAT('%',#{username},'%')
+    </select>
+</mapper>

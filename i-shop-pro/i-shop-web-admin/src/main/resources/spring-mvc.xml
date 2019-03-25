@@ -34,11 +34,11 @@
             <mvc:mapping path="/**"/>
             <mvc:exclude-mapping path="/login"/>
             <mvc:exclude-mapping path="/static/**"/>
-            <bean class="com.illusory.i.shop.web.interceptor.LoginInterceptor"/>
+            <bean class="com.illusory.i.shop.web.admin.web.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <bean class="com.illusory.i.shop.web.interceptor.PermissionInterceptor"/>
+            <bean class="com.illusory.i.shop.web.admin.web.interceptor.PermissionInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 </beans>
