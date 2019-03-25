@@ -5,9 +5,11 @@ import com.illusory.i.shop.domain.TbUser;
 import com.illusory.i.shop.web.admin.service.TbUserService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -26,6 +28,25 @@ import java.util.List;
 public class UserController {
     @Autowired
     private TbUserService tbUserService;
+
+    /**
+     * @ModelAttribute 自动将返回值放入Model中
+     * @param id
+     * @return
+     */
+    @ModelAttribute
+    public TbUser getTbUser(Long id) {
+        TbUser tbUser = null;
+        //id不为空则从数据库获取
+        if (id != null) {
+            tbUser = tbUserService.getById(id);
+        }
+        //为空则
+        else {
+            tbUser = new TbUser();
+        }
+        return tbUser;
+    }
 
     /**
      * 跳转到用户列表

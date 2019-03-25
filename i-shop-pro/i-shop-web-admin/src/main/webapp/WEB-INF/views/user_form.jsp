@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <title>我的商城 | 用户管理</title>
@@ -44,30 +45,30 @@
                       </div>
                       <!-- /.box-header -->
                       <!-- form start -->
-                      <form class="form-horizontal" action="/user/save" method="post">
+                      <form:form cssClass="form-horizontal" action="/user/save" method="post" modelAttribute="tbUser">
                           <div class="box-body">
                               <div class="form-group">
-                                  <label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
+                                  <label for="email" class="col-sm-2 control-label">邮箱</label>
                                   <div class="col-sm-10">
-                                      <input type="text" class="form-control" id="inputEmail" name="email" value="${tbUser.email}" placeholder="请输入邮箱">
+                                      <form:input cssClass="form-control" path="email" placeholder="请输入邮箱"/>
                                   </div>
                               </div>
                               <div class="form-group">
-                                  <label for="inputPassword" class="col-sm-2 control-label">密码</label>
+                                  <label for="password" class="col-sm-2 control-label">密码</label>
                                   <div class="col-sm-10">
-                                      <input type="password" class="form-control" id="inputPassword" name="password" value="${tbUser.password}" placeholder="请输入密码">
+                                      <form:password cssClass="form-control" path="password" placeholder="请输入登录密码"/>
                                   </div>
                               </div>
                               <div class="form-group">
-                                  <label for="inputUsername" class="col-sm-2 control-label">姓名</label>
+                                  <label for="username" class="col-sm-2 control-label">姓名</label>
                                   <div class="col-sm-10">
-                                      <input type="text" class="form-control" id="inputUsername" name="username" value="${tbUser.username}" placeholder="请输入用户姓名">
+                                      <form:input cssClass="form-control" path="username" placeholder="请输入用户姓名"/>
                                   </div>
                               </div>
                               <div class="form-group">
-                                  <label for="inputPhone" class="col-sm-2 control-label">手机</label>
+                                  <label for="phone" class="col-sm-2 control-label">手机</label>
                                   <div class="col-sm-10">
-                                      <input type="text" class="form-control" id="inputPhone" name="phone" value="${tbUser.phone}" placeholder="请输入用户手机号">
+                                      <form:input cssClass="form-control" path="phone" placeholder="请输入用户手机号"/>
                                   </div>
                               </div>
                           </div>
@@ -77,7 +78,7 @@
                               <button type="submit" class="btn btn-info pull-right">提交</button>
                           </div>
                           <!-- /.box-footer -->
-                      </form>
+                      </form:form>
                   </div>
               </div>
           </div>
