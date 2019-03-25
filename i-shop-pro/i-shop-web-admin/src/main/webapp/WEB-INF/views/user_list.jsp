@@ -190,6 +190,7 @@
         });
         if (idArray.length === 0) {
             $('#modal-default').modal("show");
+            $('#modal-message').html("您还没有选中任何数据,请至少选中一项");
         }
         ;
     }

@@ -1,7 +1,7 @@
 <%@ tag language="java" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ attribute name="modalTitle" type="java.lang.String" required="false" description="模态框的标题" %>
-<%@ attribute name="modalMessage" type="java.lang.String" required="true" description="模态框的标题" %>
+<%@ attribute name="modalMessage" type="java.lang.String" required="false" description="提示信息" %>
 <%@ attribute name="opts" type="java.lang.String" required="false" description="操作类型:info/信息提示 confrim/确认对话框" %>
 <%@ attribute name="url" type="java.lang.String" required="false" description="跳转链接 主要用于confrim/确认对话框" %>
 <!--模态框 提示-->
@@ -14,7 +14,7 @@
                 <h4 class="modal-title">${modalTitle==null ? "温馨提示":modalTitle}</h4>
             </div>
             <div class="modal-body">
-                <p>${modalMessage}&hellip;</p>
+                <p id="modal-message">${modalMessage}&hellip;</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
