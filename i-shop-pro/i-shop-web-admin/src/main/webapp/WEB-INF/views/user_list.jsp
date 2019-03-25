@@ -44,56 +44,60 @@
                             <h3 class="box-title">用户列表</h3>
 
                             <div class="row" style="margin-top: 20px">
-                              <div class="col-xs-12">
-                                  <a href="/user/form" type="button" class="btn btn-sm btn-default"><i
-                                          class="fa fa-plus" style="margin-right: 5px"></i>新增</a>&nbsp;&nbsp;&nbsp;
-                                  <a href="#" type="button" class="btn btn-sm btn-default"><i
-                                          class="fa fa-trash" style="margin-right: 5px"></i>删除</a>&nbsp;&nbsp;&nbsp;
-                                  <a href="#" type="button" class="btn btn-sm btn-default"><i
-                                          class="fa fa-download" style="margin-right: 5px"></i>导入</a>&nbsp;&nbsp;&nbsp;
-                                  <a href="#" type="button" class="btn btn-sm btn-default"><i
-                                          class="fa fa-upload" style="margin-right: 5px"></i>导出</a>&nbsp;&nbsp;&nbsp;
-                              </div>
+                                <div class="col-xs-12">
+                                    <a href="/user/form" type="button" class="btn btn-sm btn-default"><i
+                                            class="fa fa-plus" style="margin-right: 5px"></i>新增</a>&nbsp;&nbsp;&nbsp;
+                                    <a href="#" type="button" class="btn btn-sm btn-default"><i
+                                            class="fa fa-trash" style="margin-right: 5px"></i>删除</a>&nbsp;&nbsp;&nbsp;
+                                    <a href="#" type="button" class="btn btn-sm btn-default"><i
+                                            class="fa fa-download" style="margin-right: 5px"></i>导入</a>&nbsp;&nbsp;&nbsp;
+                                    <a href="#" type="button" class="btn btn-sm btn-default"><i
+                                            class="fa fa-upload" style="margin-right: 5px"></i>导出</a>&nbsp;&nbsp;&nbsp;
+                                </div>
 
                             </div>
                             <div class="row" style="margin-top: 20px;">
-                                    <form:form cssClass="form-horizontal" action="/user/search" method="post" modelAttribute="tbUser">
-                                       <div class="row">
-                                           <div class="col-xs-3">
-                                               <div class="form-group">
-                                                   <label for="username" class="col-sm-4 control-label">姓名</label>
-                                                   <div class="col-sm-8">
-                                                       <form:input cssClass="form-control required email" path="username" placeholder="姓名"/>
-                                                   </div>
-                                               </div>
-                                           </div> <div class="col-xs-3">
-                                           <div class="form-group">
-                                               <label for="email" class="col-sm-4 control-label">邮箱</label>
-                                               <div class="col-sm-8">
-                                                   <form:input cssClass="form-control required email" path="email" placeholder="邮箱"/>
-                                               </div>
-                                           </div>
-                                       </div>
-                                           <div class="col-xs-3">
-                                               <div class="form-group">
-                                                   <label for="phone" class="col-sm-4 control-label">手机号</label>
-                                                   <div class="col-sm-8">
-                                                       <form:input cssClass="form-control required email" path="phone"
-                                                                   placeholder="手机号"/>
-                                                   </div>
-                                               </div>
-                                           </div>
-                                           <div class="row" style="padding-right: 77px">
-                                               <div class="col-xs-12">
-                                                   <button type="submit" class="btn btn-info pull-right">提交</button>
-                                               </div>
-                                           </div>
-                                       </div>
-                                    </form:form>
+                                <form:form cssClass="form-horizontal" action="/user/search" method="post"
+                                           modelAttribute="tbUser">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <div class="form-group">
+                                                <label for="username" class="col-sm-4 control-label">姓名</label>
+                                                <div class="col-sm-8">
+                                                    <form:input cssClass="form-control required email" path="username"
+                                                                placeholder="姓名"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <div class="form-group">
+                                                <label for="email" class="col-sm-4 control-label">邮箱</label>
+                                                <div class="col-sm-8">
+                                                    <form:input cssClass="form-control required email" path="email"
+                                                                placeholder="邮箱"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <div class="form-group">
+                                                <label for="phone" class="col-sm-4 control-label">手机号</label>
+                                                <div class="col-sm-8">
+                                                    <form:input cssClass="form-control required email" path="phone"
+                                                                placeholder="手机号"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding-right: 77px">
+                                            <div class="col-xs-12">
+                                                <button type="submit" class="btn btn-info pull-right">提交</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form:form>
                             </div>
                             <!-- /.modal -->
                             <%--<div class="box-tools">--%>
-                                <%----%>
+                            <%----%>
                             <%--</div>--%>
                         </div>
                         <!-- /.box-header -->
@@ -101,6 +105,8 @@
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
+                                    <!--主要的CheckBox-->
+                                    <th><input type="checkbox" class="minimal icheck_master"></th>
                                     <th>ID</th>
                                     <th>用户名</th>
                                     <th>手机号</th>
@@ -112,6 +118,8 @@
                                 <tbody>
                                 <c:forEach items="${tbUsers}" var="tbUser">
                                     <tr>
+                                        <!--用userId做为checkbox的ID 方便删除操作-->
+                                        <th><input id="${tbUser.id}" type="checkbox" class="minimal"></th>
                                         <td>${tbUser.id}</td>
                                         <td>${tbUser.username}</td>
                                         <td>${tbUser.phone}</td>
@@ -147,6 +155,10 @@
     <jsp:include page="../includes/copyright.jsp"/>
 </div>
 <jsp:include page="../includes/footer.jsp"/>
+<script>
+    var _checkbox=App.getCheckbox();
+    console.log(_checkbox.length);
+</script>
 </body>
 </html>
 
