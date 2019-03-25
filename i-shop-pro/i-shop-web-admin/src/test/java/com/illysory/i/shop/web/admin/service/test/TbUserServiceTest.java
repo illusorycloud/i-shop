@@ -43,7 +43,7 @@ public class TbUserServiceTest {
         tbUser.setEmail("illusory@azz.com");
         tbUser.setCreated(new Date());
         tbUser.setUpdated(new Date());
-        tbUserService.insert(tbUser);
+        tbUserService.save(tbUser);
     }
 
     @Test

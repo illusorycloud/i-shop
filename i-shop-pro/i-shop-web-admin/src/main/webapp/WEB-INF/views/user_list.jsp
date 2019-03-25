@@ -30,12 +30,19 @@
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
+                    <c:if test="${baseResult!=null}">
+                        <div class="alert alert-${baseResult.status==200 ? "success" : "danger"} alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <%--<h4><i class="icon fa fa-ban"></i>提示</h4>--%>
+                                ${baseResult.message}
+                        </div>
+                    </c:if>
                     <div class="box">
                         <div class="box-header">
                             <h3 class="box-title">用户列表</h3>
 
                             <div class="row" style="padding-left: 12px;padding-top: 10px">
-                                <a href="#" type="button" class="btn btn-sm btn-default"><i
+                                <a href="/user/form" type="button" class="btn btn-sm btn-default"><i
                                         class="fa fa-plus" style="margin-right: 5px"></i>新增</a>&nbsp;&nbsp;&nbsp;
                                 <a href="#" type="button" class="btn btn-sm btn-default"><i
                                         class="fa fa-trash" style="margin-right: 5px"></i>删除</a>&nbsp;&nbsp;&nbsp;

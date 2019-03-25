@@ -1,5 +1,6 @@
 package com.illusory.i.shop.web.admin.service;
 
+import com.illusory.i.shop.commoms.dto.BaseResult;
 import com.illusory.i.shop.domain.TbUser;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 public interface TbUserService {
     public List<TbUser> selectAll();
 
-    void insert(TbUser tbUser);
+    BaseResult save(TbUser tbUser);
 
     void delete(Long id);
 

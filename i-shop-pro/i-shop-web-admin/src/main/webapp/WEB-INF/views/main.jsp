@@ -19,7 +19,7 @@
         <section class="content-header">
             <h1>
                 控制面板
-                <small>Control panel</small>
+                <small></small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i>首页</a></li>

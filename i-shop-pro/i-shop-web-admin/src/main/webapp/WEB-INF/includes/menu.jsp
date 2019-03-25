@@ -43,6 +43,7 @@
                     <%--<li class="active"><a href="index.html"><i class="fa fa-circle-o"></i>--%>
                     <%--Dashboard v1</a></li>--%>
                     <li><a href="/user/list"><i class="fa fa-circle-o"></i>用户列表</a>
+                    <li><a href="/user/form"><i class="fa fa-circle-o"></i>新增用户</a>
                     </li>
                 </ul>
             </li>
