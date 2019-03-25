@@ -40,7 +40,7 @@ var App = function () {
         },
         getCheckbox:function () {
             return _checkbox;
-        };
+        }
     }
 }();
 
