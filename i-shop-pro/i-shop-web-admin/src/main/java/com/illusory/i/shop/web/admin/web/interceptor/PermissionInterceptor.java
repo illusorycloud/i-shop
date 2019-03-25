@@ -1,6 +1,7 @@
 package com.illusory.i.shop.web.admin.web.interceptor;
 
 import com.illusory.i.shop.commoms.constant.ConstantUtils;
+import com.illusory.i.shop.domain.TbUser;
 import com.illusory.i.shop.domain.User;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,8 +26,8 @@ public class PermissionInterceptor implements HandlerInterceptor {
         //以login结尾的请求
         if (modelAndView.getViewName().endsWith("login")) {
             //已经登录了就跳转去首页
-            User user = (User) httpServletRequest.getSession().getAttribute(ConstantUtils.SESSION_USER);
-            if (user != null) {
+            TbUser tbUser = (TbUser) httpServletRequest.getSession().getAttribute(ConstantUtils.SESSION_USER);
+            if (tbUser != null) {
                 httpServletResponse.sendRedirect("/main");
             }
         }

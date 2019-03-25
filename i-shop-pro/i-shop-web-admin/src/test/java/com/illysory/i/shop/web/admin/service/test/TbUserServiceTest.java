@@ -38,9 +38,9 @@ public class TbUserServiceTest {
     public void testInsert() {
         TbUser tbUser = new TbUser();
         tbUser.setUsername("illusory");
-        tbUser.setPassword(DigestUtils.md5DigestAsHex("1234556".getBytes()));
-        tbUser.setPhone("13123131");
-        tbUser.setEmail("illusory@xxx.com");
+        tbUser.setPassword(DigestUtils.md5DigestAsHex("123456".getBytes()));
+        tbUser.setPhone("123456789");
+        tbUser.setEmail("illusory@azz.com");
         tbUser.setCreated(new Date());
         tbUser.setUpdated(new Date());
         tbUserService.insert(tbUser);
@@ -59,8 +59,8 @@ public class TbUserServiceTest {
 
     @Test
     public void testUpdate() {
-        TbUser tbUser = tbUserService.getById(36L);
-        tbUser.setUsername("new name");
+        TbUser tbUser = tbUserService.getById(41L);
+        tbUser.setPassword(DigestUtils.md5DigestAsHex("123456".getBytes()));
         tbUserService.update(tbUser);
     }
 
@@ -71,6 +71,11 @@ public class TbUserServiceTest {
         ) {
             System.out.println(t.toString());
         }
+    }
+
+    @Test
+    public void testMd5(){
+        System.out.println(DigestUtils.md5DigestAsHex("123456".getBytes()));
     }
 
 }

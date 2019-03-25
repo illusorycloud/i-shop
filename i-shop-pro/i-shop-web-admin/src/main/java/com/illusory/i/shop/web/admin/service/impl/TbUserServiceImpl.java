@@ -6,6 +6,7 @@ import com.illusory.i.shop.web.admin.service.TbUserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
 
 import java.util.List;
 
@@ -47,5 +48,19 @@ public class TbUserServiceImpl implements TbUserService {
     @Override
     public List<TbUser> selectByUsername(String username) {
         return tbUserDao.selectByUsername(username);
+    }
+
+    @Override
+    public TbUser login(String email, String password) {
+        TbUser tbUser = tbUserDao.getByEmail(email);
+        if (tbUser != null) {
+            //明文密码加密
+            String md5Password = DigestUtils.md5DigestAsHex(password.getBytes());
+            //判断与数据库中密码是否匹配
+            if (md5Password.equals(tbUser.getPassword())) {
+                return tbUser;
+            }
+        }
+        return null;
     }
 }

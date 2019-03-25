@@ -30,12 +30,14 @@ public interface TbUserDao {
 
     /**
      * 删除
+     *
      * @param id 用户id
      */
     void delete(Long id);
 
     /**
      * 根据ID查询用户信息
+     *
      * @param id
      * @return
      */
@@ -43,14 +45,24 @@ public interface TbUserDao {
 
     /**
      * 更新用户信息
+     *
      * @param tbUser
      */
     void update(TbUser tbUser);
 
     /**
      * 根据用户名进行模糊查询
+     *
      * @param username
      * @return
      */
     List<TbUser> selectByUsername(String username);
+
+    /**
+     * 根据邮箱查询用户信息
+     *
+     * @param email
+     * @return
+     */
+    TbUser getByEmail(String email);
 }
