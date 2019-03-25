@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <html>
 <title>我的商城 | 控制面板</title>
@@ -54,8 +56,9 @@
 
                             <!-- /.modal -->
                             <div class="box-tools">
+                                <form action="/user/search" method="post">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search"
+                                    <input type="text" name="keyword"
                                            class="form-control pull-right" placeholder="搜索">
 
                                     <div class="input-group-btn">
@@ -63,6 +66,7 @@
                                                 class="fa fa-search"></i></button>
                                     </div>
                                 </div>
+                                </form>
                             </div>
                         </div>
                         <!-- /.box-header -->

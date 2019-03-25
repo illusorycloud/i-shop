@@ -30,9 +30,9 @@ public class UserController {
     private TbUserService tbUserService;
 
     /**
-     * @ModelAttribute 自动将返回值放入Model中
      * @param id
      * @return
+     * @ModelAttribute 自动将返回值放入Model中
      */
     @ModelAttribute
     public TbUser getTbUser(Long id) {
@@ -78,5 +78,12 @@ public class UserController {
             model.addAttribute("baseResult", baseResult);
             return "user_form";
         }
+    }
+
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    public String search(String keyword, Model model) {
+        List<TbUser> tbUsers = tbUserService.search(keyword);
+        model.addAttribute("tbUsers", tbUsers);
+        return "user_list";
     }
 }

@@ -3,6 +3,8 @@ package com.illusory.i.shop.web.admin.service;
 import com.illusory.i.shop.commoms.dto.BaseResult;
 import com.illusory.i.shop.domain.TbUser;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.List;
 
 /**
@@ -23,5 +25,8 @@ public interface TbUserService {
 
     List<TbUser> selectByUsername(String username);
 
-    TbUser login(String email,String password);
+    TbUser login(String email, String password);
+
+    List<TbUser> search(String keyword);
+
 }
