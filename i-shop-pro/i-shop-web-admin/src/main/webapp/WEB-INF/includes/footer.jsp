@@ -22,7 +22,17 @@
 <script src="/static/assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="/static/assets/bower_components/fastclick/lib/fastclick.js"></script>
+
+<!--jQuery Validation Plugin - v1.14.0 Begin-->
+<script src="/static/assets/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+<script src="/static/assets/plugins/jquery-validation/js/additional-methods.min.js"></script>
+<script src="/static/assets/plugins/jquery-validation/js/localization/messages_zh.min.js"></script>
+<!--jQuery Validation Plugin - v1.14.0 End-->
+
 <!-- AdminLTE App -->
 <script src="/static/assets/js/adminlte.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/static/assets/js/pages/dashboard.js"></script>
+
+<!--App-->
+<script src="/static/assets/app/validate.js"></script>
