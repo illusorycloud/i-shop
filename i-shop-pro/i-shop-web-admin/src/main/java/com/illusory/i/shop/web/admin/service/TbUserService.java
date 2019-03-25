@@ -27,6 +27,6 @@ public interface TbUserService {
 
     TbUser login(String email, String password);
 
-    List<TbUser> search(String keyword);
+    List<TbUser> search(TbUser tbUser);
 
 }
