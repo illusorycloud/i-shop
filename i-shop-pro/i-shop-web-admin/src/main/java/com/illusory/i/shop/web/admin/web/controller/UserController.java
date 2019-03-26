@@ -114,7 +114,7 @@ public class UserController {
      */
     @ResponseBody
     @RequestMapping(value = "/page", method = RequestMethod.GET)
-    public PageInfo<TbUser> page(HttpServletRequest request) {
+    public PageInfo<TbUser> page(HttpServletRequest request,TbUser tbUser) {
         String strDraw = request.getParameter("draw");
         String strStart = request.getParameter("start");
         String strLength = request.getParameter("length");
@@ -124,7 +124,7 @@ public class UserController {
         int length = strLength == null ? 10 : Integer.parseInt(strLength);
 
         //封装Datatables需要的数据
-        return tbUserService.page(draw, start, length);
+        return tbUserService.page(draw, start, length,tbUser);
     }
 
     /**

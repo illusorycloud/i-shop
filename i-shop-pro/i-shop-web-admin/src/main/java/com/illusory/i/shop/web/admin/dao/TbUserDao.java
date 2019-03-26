@@ -97,5 +97,5 @@ public interface TbUserDao {
      *
      * @return
      */
-    int count();
+    int count(TbUser tbUser);
 }

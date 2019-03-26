@@ -23,7 +23,7 @@ var App = function () {
      * 初始化分页表格
      */
     var handlerInitDataTables = function (url, columns) {
-        $("#dataTable").DataTable({
+        var _dataTable = $("#dataTable").DataTable({
             // 是否开启本地分页
             "paging": true,
             // 是否开启本地排序
@@ -78,7 +78,8 @@ var App = function () {
                     "sSortDescending": ": 以降序排列此列"
                 }
             }
-        })
+        });
+        return _dataTable;
     };
 
     /**
@@ -194,7 +195,7 @@ var App = function () {
             handlerDeleteMulti(url);
         },
         initDataTables: function (url, columns) {
-            handlerInitDataTables(url, columns);
+          return handlerInitDataTables(url, columns);
         },
         showDetail: function (url) {
             handlerShowDetail(url);

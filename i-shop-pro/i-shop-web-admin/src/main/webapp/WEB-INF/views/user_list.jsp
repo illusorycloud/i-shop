@@ -49,53 +49,49 @@
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form:form cssClass="form-horizontal" action="/user/search" method="post"
-                                   modelAttribute="tbUser">
-                            <div class="box-body">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-3">
-                                        <div class="form-group">
-                                            <label for="username"
-                                                   class="col-sm-4 control-label">姓名</label>
-                                            <div class="col-sm-8">
-                                                <form:input cssClass="form-control required email"
-                                                            path="username"
-                                                            placeholder="姓名"/>
-                                            </div>
+                        <div class="box-body">
+                            <div class="row form-horizontal">
+                                <div class="col-xs-12 col-sm-3">
+                                    <div class="form-group">
+                                        <label for="username"
+                                               class="col-sm-4 control-label">姓名</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="username" class="orm-control"
+                                                   placeholder="姓名">
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-3">
-                                        <div class="form-group">
-                                            <label for="email"
-                                                   class="col-sm-4 control-label">邮箱</label>
-                                            <div class="col-sm-8">
-                                                <form:input class="form-control" path="email"
-                                                            placeholder="邮箱"/>
-                                            </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-3">
+                                    <div class="form-group">
+                                        <label for="phone"
+                                               class="col-sm-4 control-label">手机</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="phone" class="orm-control"
+                                                   placeholder="手机">
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-3">
-                                        <div class="form-group">
-                                            <label for="phone"
-                                                   class="col-sm-4 control-label">手机号</label>
-                                            <div class="col-sm-8">
-                                                <form:input cssClass="form-control required email"
-                                                            path="phone"
-                                                            placeholder="手机号"/>
-                                            </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-3">
+                                    <div class="form-group">
+                                        <label for="email"
+                                               class="col-sm-4 control-label">邮箱</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="email" class="orm-control"
+                                                   placeholder="邮箱">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- /.box-body -->
-                            <div class="box-footer">
-                                <div class="col-xs-12">
-                                    <button type="submit" class="btn btn-info pull-right">搜索
-                                    </button>
-                                </div>
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                            <div class="col-xs-12">
+                                <button type="button" onclick="search();"
+                                        class="btn btn-info pull-right">搜索
+                                </button>
                             </div>
-                            <!-- /.box-footer -->
-                        </form:form>
+                        </div>
+                        <!-- /.box-footer -->
                     </div>
                     <div class="box">
                         <div class="box-header">
@@ -179,6 +175,8 @@
 <!--自定义模态框-->
 <sys:modal/>
 <script>
+    var _dataTable;
+
     $(function () {
         /**
          * 分页显示对象
@@ -198,16 +196,28 @@
             {"data": "updated"},
             {
                 "data": function (row, type, val, meta) {
-                    var detailUrl="/user/detail?id="+row.id;
-                    return '<button type="button" class="btn btn-sm btn-default" onclick="App.showDetail(\''+detailUrl+'\');"><i class="fa fa-search"></i> 查看</button>&nbsp;&nbsp;&nbsp;' +
+                    var detailUrl = "/user/detail?id=" + row.id;
+                    return '<button type="button" class="btn btn-sm btn-default" onclick="App.showDetail(\'' + detailUrl + '\');"><i class="fa fa-search"></i> 查看</button>&nbsp;&nbsp;&nbsp;' +
                         '<a href="/user/form?id=' + row.id + '" type="button" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;&nbsp;' +
                         '<a href="#" type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i> 删除</a>'
                 }
             }
         ]
-        App.initDataTables("/user/page", _columns);
+        _dataTable = App.initDataTables("/user/page", _columns);
     });
 
+    function search() {
+        var username = $('#username').val();
+        var email = $('#email').val();
+        var phone = $('#phone').val();
+        var params = {
+            "username": username,
+            "email": email,
+            "phone": phone
+        };
+        _dataTable.settings()[0].ajax.data =params;
+        _dataTable.ajax.reload();
+    }
 </script>
 </body>
 </html>

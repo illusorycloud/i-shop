@@ -1,5 +1,6 @@
 package com.illusory.i.shop.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.illusory.i.shop.commoms.persistence.BaseEntity;
 
 import lombok.Getter;
@@ -16,6 +17,7 @@ import lombok.ToString;
 @ToString
 public class TbUser extends BaseEntity {
     private String username;
+    @JsonIgnore
     private String password;
     private String phone;
     private String email;

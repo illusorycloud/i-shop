@@ -33,7 +33,7 @@ public interface TbUserService {
 
     void deleteMulti(String[] ids);
 
-    PageInfo<TbUser> page(int start, int length,int draw);
+    PageInfo<TbUser> page(int start, int length,int draw,TbUser tbUser);
 
-    int count();
+    int count(TbUser tbUser);
 }
