@@ -14,6 +14,7 @@
     <!--dropzone 图片上传插件-->
     <link rel="stylesheet" href="/static/assets/plugins/dropzone/dropzone.css"/>
     <link rel="stylesheet" href="/static/assets/plugins/dropzone/min/basic.min.css"/>
+    <!--wangEditor富文本编辑器-->
     <link rel="stylesheet" href="/static/assets/plugins/wangEditor/wangEditor.min.css"/>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -146,6 +147,7 @@
 <script src="/static/assets/plugins/jquery-ztree/js/jquery.ztree.core-3.5.min.js"></script>
 <!--dropzone 图片上传插件-->
 <script src="/static/assets/plugins/dropzone/min/dropzone.min.js"></script>
+<!--wangEditor富文本编辑器-->
 <script src="/static/assets/plugins/wangEditor/wangEditor.min.js"></script>
 
 <!-- 自定义模态框 -->
@@ -175,6 +177,7 @@
         editor.create();
 
         $("#btnSubmit").bind("click", function () {
+            //获取输入框中的内容 包括样式(<h1>test</h1>)
             var contentHtml = editor.txt.html();
             $("#content").val(contentHtml);
         });

@@ -1,5 +1,6 @@
 package com.illusory.i.shop.web.admin.service;
 
+import com.illusory.i.shop.commons.persistence.BaseService;
 import com.illusory.i.shop.domain.TbContentCategory;
 
 import java.util.List;
@@ -9,11 +10,12 @@ import java.util.List;
  * @version 1.0.0
  * @date 2019/3/26
  */
-public interface TbContentCategoryService {
+public interface TbContentCategoryService extends BaseService<TbContentCategory> {
     /**
-     * 查询所有
+     * 根据父级节点 ID 查询所有子节点
      *
+     * @param pid
      * @return
      */
-    List<TbContentCategory> selectAll();
+    List<TbContentCategory> selectByPid(Long pid);
 }

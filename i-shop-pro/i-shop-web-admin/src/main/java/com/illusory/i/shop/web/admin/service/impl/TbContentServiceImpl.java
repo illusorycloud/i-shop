@@ -86,7 +86,6 @@ public class TbContentServiceImpl implements TbContentService {
         params.put("start", start);
         params.put("length", length);
         params.put("tbContent", tbContent);
-
         int count = tbContentDao.count(tbContent);
         PageInfo<TbContent> pageInfo = new PageInfo<>();
         pageInfo.setDraw(draw);

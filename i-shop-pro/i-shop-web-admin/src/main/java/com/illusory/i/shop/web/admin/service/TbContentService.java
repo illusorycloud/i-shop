@@ -1,10 +1,7 @@
 package com.illusory.i.shop.web.admin.service;
 
-import com.illusory.i.shop.commons.dto.BaseResult;
-import com.illusory.i.shop.commons.dto.PageInfo;
+import com.illusory.i.shop.commons.persistence.BaseService;
 import com.illusory.i.shop.domain.TbContent;
-
-import java.util.List;
 
 /**
  * 内容管理Service
@@ -13,72 +10,6 @@ import java.util.List;
  * @version 1.0.0
  * @date 2019/3/26
  */
-public interface TbContentService {
-    /**
-     * 查询全部信息
-     *
-     * @return List<TbContent>
-     */
-    List<TbContent> selectAll();
+public interface TbContentService extends BaseService<TbContent> {
 
-    /**
-     * 新增
-     *
-     * @param tbContent
-     */
-    BaseResult save(TbContent tbContent);
-
-    /**
-     * 删除
-     *
-     * @param id
-     */
-    void delete(Long id);
-
-    /**
-     * 根据ID查询
-     *
-     * @param id
-     * @return
-     */
-    TbContent getById(Long id);
-
-    /**
-     * 更新信息
-     *
-     * @param tbContent
-     */
-    void update(TbContent tbContent);
-
-    /**
-     * 搜索
-     *
-     * @return
-     */
-    List<TbContent> search(TbContent tbContent);
-
-    /**
-     * 根据ID批量删除
-     *
-     * @param ids
-     */
-    void deleteMulti(String[] ids);
-
-    /**
-     * 分页查询
-     *
-     * @param start
-     * @param length
-     * @param draw
-     * @param tbContent
-     * @return
-     */
-    PageInfo<TbContent> page(int start, int length, int draw, TbContent tbContent);
-
-    /**
-     * 查询总记录条数
-     *
-     * @return
-     */
-    int count(TbContent tbContent);
 }
