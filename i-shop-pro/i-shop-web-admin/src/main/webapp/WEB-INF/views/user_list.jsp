@@ -139,9 +139,9 @@
                                 <tbody>
                                 <c:forEach items="${tbUsers}" var="tbUser">
                                     <tr>
-                                            <%--<!--用userId做为checkbox的ID 方便删除操作-->--%>
-                                            <%--<th><input id="${tbUser.id}" type="checkbox"--%>
-                                            <%--class="minimal"></th>--%>
+                                            <!--用userId做为checkbox的ID 方便删除操作-->
+                                            <th><input id="${tbUser.id}" type="checkbox"
+                                            class="minimal"></th>
                                         <td>${tbUser.id}</td>
                                         <td>${tbUser.username}</td>
                                         <td>${tbUser.phone}</td>
@@ -178,74 +178,34 @@
 <jsp:include page="../includes/footer.jsp"/>
 <!--自定义模态框-->
 <sys:modal/>
-
-
 <script>
     $(function () {
-        $('#dataTable').DataTable({
-            //是否开启分页
-            "paging": true,
-            //客户端是否能调整每页条数
-            //左下角信息 总条数当前条数
-            "info": true,
-            "lengthChange": false,
-            //是否开启排序
-            "ordering": false,
-            //是否显示加载进度条
-            "processing": true,
-            //是否开启搜索功能
-            "searching": false,
-            //服务端模式 开启后分页排序等在服务端进行
-            "serverSide": true,
-            //延迟渲染 加快加载速度
-            "deferRender": true,
-            //ajax获取数据 地址
-            "ajax": {
-                "url": "/user/page",
-                "data": {
-                    "user_id": 451
+        /**
+         * 分页显示对象
+         * @type {*[]}
+         * @private
+         */
+        var _columns = [
+            {
+                "data": function (row, type, val, meta) {
+                    return '<input id="' + row.id + '" type="checkbox" class="minimal" />';
                 }
-            }, "columns": [
-                {
-                    "data": function (row, type, val, meta) {
-                        return '<input id="' + row.id + '" type="checkbox" class="minimal" />';
-                    }
-                },
-                {"data": "id"},
-                {"data": "username"},
-                {"data": "phone"},
-                {"data": "email"},
-                {"data": "updated"},
-                {
-                    "data": function (row, type, val, meta) {
-                        return '<a href="#" type="button" class="btn btn-sm btn-default"><i class="fa fa-search"></i> 查看</a>&nbsp;&nbsp;&nbsp;' +
-                            '<a href="#" type="button" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;&nbsp;' +
-                            '<a href="#" type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i> 删除</a>'
-                    }
+            },
+            {"data": "id"},
+            {"data": "username"},
+            {"data": "phone"},
+            {"data": "email"},
+            {"data": "updated"},
+            {
+                "data": function (row, type, val, meta) {
+                    return '<a href="#" type="button" class="btn btn-sm btn-default"><i class="fa fa-search"></i> 查看</a>&nbsp;&nbsp;&nbsp;' +
+                        '<a href="/user/form?id='+row.id+'" type="button" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;&nbsp;' +
+                        '<a href="#" type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i> 删除</a>'
                 }
-            ],
-            // 国际化
-            "language": {
-                "sProcessing": "处理中...",
-                "sLengthMenu": "显示 _MENU_ 项结果",
-                "sZeroRecords": "没有匹配结果",
-                "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
-                "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
-                "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
-                "sInfoPostFix": "",
-                "sSearch": "搜索:",
-                "sUrl": "",
-                "sEmptyTable": "表中数据为空",
-                "sLoadingRecords": "载入中...",
-                "sInfoThousands": ",",
-                "oPaginate": {
-                    "sFirst": "首页",
-                    "sPrevious": "上页",
-                    "sNext": "下页",
-                    "sLast": "末页"
-                },
-        });
-    });
+            }
+        ]
+        App.initDataTables("/user/page", _columns);
+    })
 </script>
 </body>
 </html>

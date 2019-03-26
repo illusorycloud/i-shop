@@ -1,6 +1,7 @@
 package com.illusory.i.shop.web.admin.service;
 
 import com.illusory.i.shop.commoms.dto.BaseResult;
+import com.illusory.i.shop.commoms.dto.PageInfo;
 import com.illusory.i.shop.domain.TbUser;
 
 import org.apache.commons.lang3.StringUtils;
@@ -32,7 +33,7 @@ public interface TbUserService {
 
     void deleteMulti(String[] ids);
 
-    List<TbUser> page(int start,int length);
+    PageInfo<TbUser> page(int start, int length,int draw);
 
     int count();
 }

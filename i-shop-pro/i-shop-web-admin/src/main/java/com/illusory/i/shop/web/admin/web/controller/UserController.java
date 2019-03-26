@@ -1,6 +1,7 @@
 package com.illusory.i.shop.web.admin.web.controller;
 
 import com.illusory.i.shop.commoms.dto.BaseResult;
+import com.illusory.i.shop.commoms.dto.PageInfo;
 import com.illusory.i.shop.domain.TbUser;
 import com.illusory.i.shop.web.admin.service.TbUserService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
@@ -115,9 +116,7 @@ public class UserController {
      */
     @ResponseBody
     @RequestMapping(value = "/page", method = RequestMethod.GET)
-    public Map<String, Object> page(HttpServletRequest request) {
-
-        Map<String, Object> result = new HashMap<>();
+    public PageInfo<TbUser> page(HttpServletRequest request) {
         String strDraw = request.getParameter("draw");
         String strStart = request.getParameter("start");
         String strLength = request.getParameter("length");
@@ -125,16 +124,8 @@ public class UserController {
         int draw = strDraw == null ? 0 : Integer.parseInt(strDraw);
         int start = strStart == null ? 0 : Integer.parseInt(strStart);
         int length = strLength == null ? 10 : Integer.parseInt(strLength);
-        List<TbUser> tbUsers = tbUserService.page(start, length);
-        for (TbUser t : tbUsers) {
-            System.out.println(t.getUsername());
-        }
+
         //封装Datatables需要的数据
-        int count = tbUserService.count();
-        result.put("draw", draw);
-        result.put("recordsTotal", count);
-        result.put("recordsFiltered", count);
-        result.put("data", tbUsers);
-        return result;
+        return tbUserService.page(draw, start, length);
     }
 }

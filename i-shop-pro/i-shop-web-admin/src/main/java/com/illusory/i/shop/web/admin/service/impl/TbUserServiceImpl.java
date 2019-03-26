@@ -1,6 +1,7 @@
 package com.illusory.i.shop.web.admin.service.impl;
 
 import com.illusory.i.shop.commoms.dto.BaseResult;
+import com.illusory.i.shop.commoms.dto.PageInfo;
 import com.illusory.i.shop.commoms.utils.RegexUtils;
 import com.illusory.i.shop.web.admin.dao.TbUserDao;
 import com.illusory.i.shop.domain.TbUser;
@@ -98,11 +99,18 @@ public class TbUserServiceImpl implements TbUserService {
     }
 
     @Override
-    public List<TbUser> page(int start, int length) {
-        Map<String, Object> params = new HashMap<>();
+    public PageInfo<TbUser> page(int draw, int start, int length) {
+        Map<String, Object> params = new HashMap<>(2);
         params.put("start", start);
         params.put("length", length);
-        return tbUserDao.page(params);
+
+        int count = tbUserDao.count();
+        PageInfo<TbUser> pageInfo = new PageInfo<>();
+        pageInfo.setDraw(draw);
+        pageInfo.setRecordsTotal(count);
+        pageInfo.setRecordsFiltered(count);
+        pageInfo.setData(tbUserDao.page(params));
+        return pageInfo;
     }
 
     @Override
