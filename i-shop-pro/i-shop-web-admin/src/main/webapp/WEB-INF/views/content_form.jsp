@@ -8,17 +8,18 @@
 <html>
 <head>
     <title>我的商城 | 内容管理</title>
-    <jsp:include page="../includes/header.jsp" />
-    <!--zTree-->
-    <link rel="stylesheet" href="/static/assets/plugins/jquery-ztree/css/zTreeStyle/zTreeStyle.min.css" />
-    <link rel="stylesheet" href="/static/assets/plugins/dropzone/dropzone.css" />
-    <link rel="stylesheet" href="/static/assets/plugins/dropzone/min/basic.min.css" />
-    <link rel="stylesheet" href="/static/assets/plugins/wangEditor/wangEditor.min.css" />
+    <jsp:include page="../includes/header.jsp"/>
+    <!--zTree 用于新增内容功能-->
+    <link rel="stylesheet" href="/static/assets/plugins/jquery-ztree/css/zTreeStyle/zTreeStyle.min.css"/>
+    <!--dropzone 图片上传插件-->
+    <link rel="stylesheet" href="/static/assets/plugins/dropzone/dropzone.css"/>
+    <link rel="stylesheet" href="/static/assets/plugins/dropzone/min/basic.min.css"/>
+    <link rel="stylesheet" href="/static/assets/plugins/wangEditor/wangEditor.min.css"/>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-    <jsp:include page="../includes/nav.jsp" />
-    <jsp:include page="../includes/menu.jsp" />
+    <jsp:include page="../includes/nav.jsp"/>
+    <jsp:include page="../includes/menu.jsp"/>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -51,15 +52,18 @@
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form:form id="inputForm" cssClass="form-horizontal" action="/content/save" method="post" modelAttribute="tbContent">
-                            <form:hidden path="id" />
+                        <form:form id="inputForm" cssClass="form-horizontal" action="/content/save" method="post"
+                                   modelAttribute="tbContent">
+                            <form:hidden path="id"/>
                             <div class="box-body">
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">父级类目</label>
 
                                     <div class="col-sm-10">
-                                        <form:hidden id="categoryId" path="tbContentCategory.id" />
-                                        <input id="categoryName" class="form-control required" placeholder="请选择" readonly="true" data-toggle="modal" data-target="#modal-default" value="${tbContent.tbContentCategory.name}" />
+                                        <form:hidden id="categoryId" path="tbContentCategory.id"/>
+                                        <input id="categoryName" class="form-control required" placeholder="请选择"
+                                               readonly="true" data-toggle="modal" data-target="#modal-default"
+                                               value="${tbContent.tbContentCategory.name}"/>
                                     </div>
                                 </div>
 
@@ -67,7 +71,7 @@
                                     <label for="title" class="col-sm-2 control-label">标题</label>
 
                                     <div class="col-sm-10">
-                                        <form:input path="title" class="form-control required" placeholder="标题" />
+                                        <form:input path="title" class="form-control required" placeholder="标题"/>
                                     </div>
                                 </div>
 
@@ -75,7 +79,7 @@
                                     <label for="subTitle" class="col-sm-2 control-label">子标题</label>
 
                                     <div class="col-sm-10">
-                                        <form:input path="subTitle" class="form-control required" placeholder="子标题" />
+                                        <form:input path="subTitle" class="form-control required" placeholder="子标题"/>
                                     </div>
                                 </div>
 
@@ -83,7 +87,7 @@
                                     <label for="titleDesc" class="col-sm-2 control-label">标题描述</label>
 
                                     <div class="col-sm-10">
-                                        <form:input path="titleDesc" class="form-control required" placeholder="标题描述" />
+                                        <form:input path="titleDesc" class="form-control required" placeholder="标题描述"/>
                                     </div>
                                 </div>
 
@@ -91,7 +95,7 @@
                                     <label for="url" class="col-sm-2 control-label">链接</label>
 
                                     <div class="col-sm-10">
-                                        <form:input path="url" class="form-control" placeholder="链接" />
+                                        <form:input path="url" class="form-control" placeholder="链接"/>
                                     </div>
                                 </div>
 
@@ -99,7 +103,7 @@
                                     <label for="url" class="col-sm-2 control-label">图片1</label>
 
                                     <div class="col-sm-10">
-                                        <form:input path="pic" class="form-control" placeholder="图片1" />
+                                        <form:input path="pic" class="form-control" placeholder="图片1"/>
                                         <div id="dropz" class="dropzone"></div>
                                     </div>
                                 </div>
@@ -108,7 +112,7 @@
                                     <label for="url" class="col-sm-2 control-label">图片2</label>
 
                                     <div class="col-sm-10">
-                                        <form:input path="pic2" class="form-control" placeholder="图片2" />
+                                        <form:input path="pic2" class="form-control" placeholder="图片2"/>
                                         <div id="dropz2" class="dropzone"></div>
                                     </div>
                                 </div>
@@ -117,7 +121,7 @@
                                     <label class="col-sm-2 control-label">详情</label>
 
                                     <div class="col-sm-10">
-                                        <form:hidden path="content" />
+                                        <form:hidden path="content"/>
                                         <div id="editor">${tbContent.content}</div>
                                     </div>
                                 </div>
@@ -134,16 +138,18 @@
         </section>
     </div>
 
-    <jsp:include page="../includes/copyright.jsp" />
+    <jsp:include page="../includes/copyright.jsp"/>
 </div>
 
-<jsp:include page="../includes/footer.jsp" />
+<jsp:include page="../includes/footer.jsp"/>
+<!--zTree -->
 <script src="/static/assets/plugins/jquery-ztree/js/jquery.ztree.core-3.5.min.js"></script>
+<!--dropzone 图片上传插件-->
 <script src="/static/assets/plugins/dropzone/min/dropzone.min.js"></script>
 <script src="/static/assets/plugins/wangEditor/wangEditor.min.js"></script>
 
 <!-- 自定义模态框 -->
-<sys:modal title="请选择" message="<ul id='myTree' class='ztree'></ul>" />
+<sys:modal title="请选择" message="<ul id='myTree' class='ztree'></ul>"/>
 
 <script>
     $(function () {
@@ -160,7 +166,7 @@
     /**
      * 初始化富文本编辑器
      */
-    function initWangEditor () {
+    function initWangEditor() {
         var E = window.wangEditor;
         var editor = new E('#editor');
         // 配置服务器端地址
@@ -168,7 +174,7 @@
         editor.customConfig.uploadFileName = 'editorFiles';
         editor.create();
 
-        $("#btnSubmit").bind("click", function() {
+        $("#btnSubmit").bind("click", function () {
             var contentHtml = editor.txt.html();
             $("#content").val(contentHtml);
         });

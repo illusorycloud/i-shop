@@ -4,6 +4,7 @@
     <sql id="tbContentCategoryColumns">
         a.id,
         a.name,
+        a.parent_id AS parentId,
         a.status,
         a.sort_order AS sortOrder,
         a.is_parent AS isParent,
