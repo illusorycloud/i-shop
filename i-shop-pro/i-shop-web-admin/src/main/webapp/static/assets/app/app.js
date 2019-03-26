@@ -4,8 +4,21 @@ var App = function () {
     var _checkbox;
     //存放ID的数组
     var _idArray;
-
-
+    /**
+     * 查看用户详情
+     * @param url
+     */
+    var handlerShowDetail = function (url) {
+        $.ajax({
+            url: url,
+            type: "get",
+            dataType: "html",
+            success: function (data) {
+                $('#modal-detail-body').html(data);
+                $('#modal-detail').modal("show");
+            }
+        })
+    }
     /**
      * 初始化分页表格
      */
@@ -182,6 +195,9 @@ var App = function () {
         },
         initDataTables: function (url, columns) {
             handlerInitDataTables(url, columns);
+        },
+        showDetail: function (url) {
+            handlerShowDetail(url);
         }
     }
 }();

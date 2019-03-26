@@ -139,9 +139,9 @@
                                 <tbody>
                                 <c:forEach items="${tbUsers}" var="tbUser">
                                     <tr>
-                                            <!--用userId做为checkbox的ID 方便删除操作-->
-                                            <th><input id="${tbUser.id}" type="checkbox"
-                                            class="minimal"></th>
+                                        <!--用userId做为checkbox的ID 方便删除操作-->
+                                        <th><input id="${tbUser.id}" type="checkbox"
+                                                   class="minimal"></th>
                                         <td>${tbUser.id}</td>
                                         <td>${tbUser.username}</td>
                                         <td>${tbUser.phone}</td>
@@ -198,14 +198,16 @@
             {"data": "updated"},
             {
                 "data": function (row, type, val, meta) {
-                    return '<a href="#" type="button" class="btn btn-sm btn-default"><i class="fa fa-search"></i> 查看</a>&nbsp;&nbsp;&nbsp;' +
-                        '<a href="/user/form?id='+row.id+'" type="button" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;&nbsp;' +
+                    var detailUrl="/user/detail?id="+row.id;
+                    return '<button type="button" class="btn btn-sm btn-default" onclick="App.showDetail(\''+detailUrl+'\');"><i class="fa fa-search"></i> 查看</button>&nbsp;&nbsp;&nbsp;' +
+                        '<a href="/user/form?id=' + row.id + '" type="button" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;&nbsp;' +
                         '<a href="#" type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i> 删除</a>'
                 }
             }
         ]
         App.initDataTables("/user/page", _columns);
-    })
+    });
+
 </script>
 </body>
 </html>
