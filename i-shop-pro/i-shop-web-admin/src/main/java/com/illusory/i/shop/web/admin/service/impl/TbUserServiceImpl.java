@@ -91,7 +91,7 @@ public class TbUserServiceImpl implements TbUserService {
 
     @Override
     public PageInfo<TbUser> page(int draw, int start, int length, TbUser tbUser) {
-        Map<String, Object> params = new HashMap<>(2);
+        Map<String, Object> params = new HashMap<>(3);
         params.put("start", start);
         params.put("length", length);
         params.put("tbUser", tbUser);

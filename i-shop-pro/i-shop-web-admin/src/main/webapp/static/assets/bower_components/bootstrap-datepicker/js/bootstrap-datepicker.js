@@ -1010,7 +1010,7 @@
 					html.push('<tr>');
 					if (this.o.calendarWeeks){
 						// ISO 8601: First week contains first thursday.
-						// ISO also states week starts on Monday, but we can be more abstract here.
+						// ISO also states week starts on Monday, but we can be more abstracts here.
 						var
 							// Start of current week: based on weekstart/current date
 							ws = new Date(+prevMonth + (this.o.weekStart - weekDay - 7) % 7 * 864e5),

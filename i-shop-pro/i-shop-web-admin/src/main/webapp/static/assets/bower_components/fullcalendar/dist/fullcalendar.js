@@ -1063,7 +1063,7 @@ var Class_1 = __webpack_require__(32);
 var EventDefParser_1 = __webpack_require__(49);
 var EventSource = /** @class */ (function (_super) {
     tslib_1.__extends(EventSource, _super);
-    // can we do away with calendar? at least for the abstract?
+    // can we do away with calendar? at least for the abstracts?
     // useful for buildEventDef
     function EventSource(calendar) {
         var _this = _super.call(this) || this;
@@ -3518,7 +3518,7 @@ var DateProfileGenerator_1 = __webpack_require__(221);
 var InteractiveDateComponent_1 = __webpack_require__(40);
 var GlobalEmitter_1 = __webpack_require__(20);
 var UnzonedRange_1 = __webpack_require__(5);
-/* An abstract class from which other views inherit from
+/* An abstracts class from which other views inherit from
 ----------------------------------------------------------------------------------------------------------------------*/
 var View = /** @class */ (function (_super) {
     tslib_1.__extends(View, _super);
@@ -7307,7 +7307,7 @@ var Scroller_1 = __webpack_require__(39);
 var View_1 = __webpack_require__(41);
 var BasicViewDateProfileGenerator_1 = __webpack_require__(228);
 var DayGrid_1 = __webpack_require__(61);
-/* An abstract class for the "basic" views, as well as month view. Renders one or more rows of day cells.
+/* An abstracts class for the "basic" views, as well as month view. Renders one or more rows of day cells.
 ----------------------------------------------------------------------------------------------------------------------*/
 // It is a manager for a DayGrid subcomponent, which does most of the heavy lifting.
 // It is responsible for managing width/height.
@@ -9062,12 +9062,12 @@ var DateComponent = /** @class */ (function (_super) {
         return footprint;
     };
     DateComponent.prototype.getHitFootprint = function (hit) {
-        // what about being abstract!?
+        // what about being abstracts!?
     };
     // Given position-level information about a date-related area within the grid,
     // should return a jQuery element that best represents it. passed to dayClick callback.
     DateComponent.prototype.getHitEl = function (hit) {
-        // what about being abstract!?
+        // what about being abstracts!?
     };
     /* Converting eventRange -> eventFootprint
     ------------------------------------------------------------------------------------------------------------------*/
@@ -11322,7 +11322,7 @@ var DayGrid_1 = __webpack_require__(61);
 var AGENDA_ALL_DAY_EVENT_LIMIT = 5;
 var agendaTimeGridMethods;
 var agendaDayGridMethods;
-/* An abstract class for all agenda-related views. Displays one more columns with time slots running vertically.
+/* An abstracts class for all agenda-related views. Displays one more columns with time slots running vertically.
 ----------------------------------------------------------------------------------------------------------------------*/
 // Is a manager for the TimeGrid subcomponent and possibly the DayGrid subcomponent (if allDaySlot is on).
 // Responsible for managing width/height.

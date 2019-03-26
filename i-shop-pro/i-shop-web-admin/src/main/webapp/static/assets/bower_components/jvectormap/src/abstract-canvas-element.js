@@ -1,5 +1,5 @@
 /**
- * Implements abstract vector canvas.
+ * Implements abstracts vector canvas.
  * @constructor
  * @param {HTMLElement} container Container to put element to.
  * @param {Number} width Width of canvas.

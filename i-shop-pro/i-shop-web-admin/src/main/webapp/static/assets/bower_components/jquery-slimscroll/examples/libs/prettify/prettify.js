@@ -78,7 +78,7 @@ window['PR_SHOULD_USE_CONTINUATION'] = true;
       "mutable,namespace,nullptr,reinterpret_cast,static_assert,static_cast," +
       "template,typeid,typename,using,virtual,where"];
   var JAVA_KEYWORDS = [COMMON_KEYWORDS,
-      "abstract,boolean,byte,extends,final,finally,implements,import," +
+      "abstracts,boolean,byte,extends,final,finally,implements,import," +
       "instanceof,null,native,package,strictfp,super,synchronized,throws," +
       "transient"];
   var CSHARP_KEYWORDS = [JAVA_KEYWORDS,

@@ -2,7 +2,6 @@ package com.illusory.i.shop.web.admin.web.interceptor;
 
 import com.illusory.i.shop.commoms.constant.ConstantUtils;
 import com.illusory.i.shop.domain.TbUser;
-import com.illusory.i.shop.domain.User;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;

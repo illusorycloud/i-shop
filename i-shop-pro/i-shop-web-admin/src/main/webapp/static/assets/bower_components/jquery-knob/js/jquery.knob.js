@@ -44,7 +44,7 @@
     /**
      * Kontrol Object
      *
-     * Definition of an abstract UI control
+     * Definition of an abstracts UI control
      *
      * Each concrete component must call this one.
      * <code>
