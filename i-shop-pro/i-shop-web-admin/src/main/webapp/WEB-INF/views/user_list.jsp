@@ -35,7 +35,9 @@
                 <div class="col-xs-12">
                     <c:if test="${baseResult!=null}">
                         <div class="alert alert-${baseResult.status==200 ? "success" : "danger"} alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <button type="button" class="close" data-dismiss="alert"
+                                    aria-hidden="true">&times;
+                            </button>
                                 <%--<h4><i class="icon fa fa-ban"></i>提示</h4>--%>
                                 ${baseResult.message}
                         </div>
@@ -53,26 +55,32 @@
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-3">
                                         <div class="form-group">
-                                            <label for="username" class="col-sm-4 control-label">姓名</label>
+                                            <label for="username"
+                                                   class="col-sm-4 control-label">姓名</label>
                                             <div class="col-sm-8">
-                                                <form:input cssClass="form-control required email" path="username"
+                                                <form:input cssClass="form-control required email"
+                                                            path="username"
                                                             placeholder="姓名"/>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-3">
                                         <div class="form-group">
-                                            <label for="email" class="col-sm-4 control-label">邮箱</label>
+                                            <label for="email"
+                                                   class="col-sm-4 control-label">邮箱</label>
                                             <div class="col-sm-8">
-                                                <form:input class="form-control" path="email" placeholder="邮箱"/>
+                                                <form:input class="form-control" path="email"
+                                                            placeholder="邮箱"/>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-3">
                                         <div class="form-group">
-                                            <label for="phone" class="col-sm-4 control-label">手机号</label>
+                                            <label for="phone"
+                                                   class="col-sm-4 control-label">手机号</label>
                                             <div class="col-sm-8">
-                                                <form:input cssClass="form-control required email" path="phone"
+                                                <form:input cssClass="form-control required email"
+                                                            path="phone"
                                                             placeholder="手机号"/>
                                             </div>
                                         </div>
@@ -82,7 +90,8 @@
                             <!-- /.box-body -->
                             <div class="box-footer">
                                 <div class="col-xs-12">
-                                    <button type="submit" class="btn btn-info pull-right">搜索</button>
+                                    <button type="submit" class="btn btn-info pull-right">搜索
+                                    </button>
                                 </div>
                             </div>
                             <!-- /.box-footer -->
@@ -94,14 +103,18 @@
 
                             <div class="row" style="margin-top: 20px">
                                 <div class="col-xs-12">
-                                    <a href="/user/form" type="button" class="btn btn-sm btn-default"><i
+                                    <a href="/user/form" type="button"
+                                       class="btn btn-sm btn-default"><i
                                             class="fa fa-plus" style="margin-right: 5px"></i>新增</a>&nbsp;&nbsp;&nbsp;
-                                    <a type="button" class="btn btn-sm btn-default" onclick="deleteMulti()"><i
-                                            class="fa fa-trash" style="margin-right: 5px"></i>删除</a>&nbsp;&nbsp;&nbsp;
+                                    <button type="button" class="btn btn-sm btn-default"
+                                            onclick="App.deleteMulti('/user/delete');"><i
+                                            class="fa fa-trash" style="margin-right: 5px"></i>删除
+                                    </button>&nbsp;&nbsp;&nbsp;
                                     <a href="#" type="button" class="btn btn-sm btn-default"><i
                                             class="fa fa-download" style="margin-right: 5px"></i>导入</a>&nbsp;&nbsp;&nbsp;
                                     <a href="#" type="button" class="btn btn-sm btn-default"><i
-                                            class="fa fa-upload" style="margin-right: 5px"></i>导出</a>&nbsp;&nbsp;&nbsp;
+                                            class="fa fa-upload"
+                                            style="margin-right: 5px"></i>导出</a>&nbsp;&nbsp;&nbsp;
                                     <!--点击搜索按钮则弹出高级搜索框-->
                                     <button type="button" class="btn btn-sm btn-primary"
                                             onclick="$('.box-info-search').css('display')=='none' ? $('.box-info-search').show('fast') : $('.box-info-search').hide('fast') ">
@@ -135,7 +148,8 @@
                                 <c:forEach items="${tbUsers}" var="tbUser">
                                     <tr>
                                         <!--用userId做为checkbox的ID 方便删除操作-->
-                                        <th><input id="${tbUser.id}" type="checkbox" class="minimal"></th>
+                                        <th><input id="${tbUser.id}" type="checkbox"
+                                                   class="minimal"></th>
                                         <td>${tbUser.id}</td>
                                         <td>${tbUser.username}</td>
                                         <td>${tbUser.phone}</td>
@@ -157,7 +171,6 @@
                                         </td>
                                     </tr>
                                 </c:forEach>
-
                                 </tbody>
                             </table>
                         </div>
@@ -171,30 +184,8 @@
     <jsp:include page="../includes/copyright.jsp"/>
 </div>
 <jsp:include page="../includes/footer.jsp"/>
-<sys:modal modalTitle="第一个模态框" modalMessage="您还没有选中任何数据,请至少选中一项"/>
-
-<script>
-    /**
-     * 批量删除
-     */
-    function deleteMulti() {
-        //定义一个存放ID的数组
-        var idArray = new Array();
-        var _checkbox = App.getCheckbox();
-        //将选中元素的ID放入数组中
-        _checkbox.each(function () {
-            var _id = $(this).attr("id");
-            if (_id != null && _id != "undefine" && $(this).is(":checked")) {
-                idArray.push(_id);
-            }
-        });
-        if (idArray.length === 0) {
-            $('#modal-default').modal("show");
-            $('#modal-message').html("您还没有选中任何数据,请至少选中一项");
-        }
-        ;
-    }
-</script>
+<!--自定义模态框-->
+<sys:modal/>
 </body>
 </html>
 

@@ -2,8 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ attribute name="modalTitle" type="java.lang.String" required="false" description="模态框的标题" %>
 <%@ attribute name="modalMessage" type="java.lang.String" required="false" description="提示信息" %>
-<%@ attribute name="opts" type="java.lang.String" required="false" description="操作类型:info/信息提示 confrim/确认对话框" %>
-<%@ attribute name="url" type="java.lang.String" required="false" description="跳转链接 主要用于confrim/确认对话框" %>
 <!--模态框 提示-->
 <div class="modal fade" id="modal-default">
     <div class="modal-dialog">
@@ -25,15 +23,3 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-
-<script>
-   $(function () {
-       $('#btnModalOk').bind('click', function () {
-           <c:if test="${opts != 'confrim'}">
-           $('#modal-default').modal("hide");
-           </c:if>  <c:if test="${opts == 'confrim'}">
-           $('#modal-default').modal("hide");
-           </c:if>
-       });
-   })
-</script>

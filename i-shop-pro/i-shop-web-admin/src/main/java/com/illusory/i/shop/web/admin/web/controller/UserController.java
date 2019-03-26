@@ -91,9 +91,15 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public BaseResult delete(String ids) {
-        BaseResult baseResult=BaseResult.success();
-        System.out.println(ids);
+    public BaseResult delete(String ids, Model model) {
+        BaseResult baseResult = null;
+        if (StringUtils.isNoneBlank(ids)) {
+            String[] idArray = ids.split(",");
+            tbUserService.deleteMulti(idArray);
+            baseResult = BaseResult.success("删除用户成功");
+        } else {
+            baseResult = BaseResult.fail("删除失败");
+        }
         return baseResult;
     }
 }

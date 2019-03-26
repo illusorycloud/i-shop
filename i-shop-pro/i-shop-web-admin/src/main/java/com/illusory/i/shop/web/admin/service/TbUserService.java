@@ -29,4 +29,7 @@ public interface TbUserService {
 
     List<TbUser> search(TbUser tbUser);
 
+    void deleteMulti(String[] ids);
+
+
 }

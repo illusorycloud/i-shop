@@ -72,4 +72,11 @@ public interface TbUserDao {
      * @return
      */
     List<TbUser> search(TbUser tbUser);
+
+    /**
+     * 根据ID批量删除
+     *
+     * @param ids
+     */
+    void deleteMulti(String[] ids);
 }
