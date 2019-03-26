@@ -184,24 +184,81 @@ var App = function () {
             }, 500)
         }
     };
+
+    /**
+     * 初始化 zTree
+     * @param url
+     * @param autoParam
+     * @param callback
+     */
+    var handlerInitZTree = function (url, autoParam, callback) {
+        var setting = {
+            view: {
+                selectedMulti: false
+            },
+            async: {
+                enable: true,
+                url: url,
+                autoParam: autoParam
+            }
+        };
+
+        $.fn.zTree.init($("#myTree"), setting);
+
+        $("#btnModalOk").bind("click", function () {
+            var zTree = $.fn.zTree.getZTreeObj("myTree");
+            var nodes = zTree.getSelectedNodes();
+
+            // 未选择
+            if (nodes.length == 0) {
+                alert("请选择一个节点");
+            }
+            // 已选择
+            else {
+                callback(nodes);
+            }
+        });
+    };
     /**
      * 向外暴露的方法
      */
     return {
-        //初始化
+        /**
+         * 初始化
+         */
         init: function () {
             handlerInitCheckbox();
             handlerCheckboxAll();
         },
-        //批量删除
+        /**
+         * 批量删除
+         * @param url
+         */
         deleteMulti: function (url) {
             handlerDeleteMulti(url);
         },
-        //初始化DataTables
+        /**
+         * 初始化DataTables
+         * @param url
+         * @param columns
+         * @returns {jQuery|*}
+         */
         initDataTables: function (url, columns) {
             return handlerInitDataTables(url, columns);
         },
-        //查看用户详情
+        /**
+         * 初始化 zTree
+         * @param url
+         * @param autoParam
+         * @param callback
+         */
+        initZTree: function(url, autoParam, callback) {
+            handlerInitZTree(url, autoParam, callback);
+        },
+        /**
+         * 查看用户详情
+         * @param url
+         */
         showDetail: function (url) {
             handlerShowDetail(url);
         }

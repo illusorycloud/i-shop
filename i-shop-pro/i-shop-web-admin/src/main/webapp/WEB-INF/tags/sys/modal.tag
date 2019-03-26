@@ -1,7 +1,7 @@
 <%@ tag language="java" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ attribute name="modalTitle" type="java.lang.String" required="false" description="模态框的标题" %>
-<%@ attribute name="modalMessage" type="java.lang.String" required="false" description="提示信息" %>
+<%@ attribute name="title" type="java.lang.String" required="false" description="模态框的标题" %>
+<%@ attribute name="message" type="java.lang.String" required="false" description="提示信息" %>
 <!--模态框 提示-->
 <div class="modal fade" id="modal-default">
     <div class="modal-dialog">

@@ -21,4 +21,5 @@ public interface TbContentCategoryDao {
      * @return
      */
     List<TbContentCategory> selectAll();
+
 }

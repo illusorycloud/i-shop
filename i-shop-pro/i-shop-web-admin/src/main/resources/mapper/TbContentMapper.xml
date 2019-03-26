@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.funtl.my.shop.web.admin.dao.TbContentDao">
+<mapper namespace="com.illusory.i.shop.web.admin.dao.TbContentDao">
     <sql id="tbContentColumns">
         a.id,
         a.title,
@@ -15,7 +15,7 @@
         b.id AS "tbContentCategory.id",
         b.name AS "tbContentCategory.name"
     </sql>
-    
+
     <sql id="tbContentJoins">
         LEFT JOIN tb_content_category AS b ON a.category_id = b.id
     </sql>
@@ -75,19 +75,19 @@
 
     <insert id="insert">
         INSERT INTO tb_content (
-          `category_id`,
-          `title`,
-          `sub_title`,
-          `title_desc`,
-          `url`,
-          `pic`,
-          `pic2`,
-          `content`,
-          `created`,
-          `updated`
+            `category_id`,
+            `title`,
+            `sub_title`,
+            `title_desc`,
+            `url`,
+            `pic`,
+            `pic2`,
+            `content`,
+            `created`,
+            `updated`
         )
         VALUES
-          (
+        (
             #{tbContentCategory.id},
             #{title},
             #{subTitle},
@@ -98,7 +98,7 @@
             #{content},
             #{created},
             #{updated}
-          )
+        )
     </insert>
 
     <delete id="delete">
@@ -123,7 +123,7 @@
 
     <update id="update">
         UPDATE
-          tb_content
+            tb_content
         SET
             `category_id` =  #{tbContentCategory.id},
             `title` = #{title},

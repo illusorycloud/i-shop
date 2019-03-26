@@ -3,6 +3,7 @@ package com.illusory.i.shop.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.illusory.i.shop.commoms.persistence.BaseEntity;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,9 +13,7 @@ import lombok.ToString;
  * @version 1.0.0
  * @date 2019/3/25
  */
-@Getter
-@Setter
-@ToString
+@Data
 public class TbUser extends BaseEntity {
     private String username;
     @JsonIgnore
