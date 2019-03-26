@@ -100,38 +100,30 @@
                     <div class="box">
                         <div class="box-header">
                             <h3 class="box-title">用户列表</h3>
-
-                            <div class="row" style="margin-top: 20px">
-                                <div class="col-xs-12">
-                                    <a href="/user/form" type="button"
-                                       class="btn btn-sm btn-default"><i
-                                            class="fa fa-plus" style="margin-right: 5px"></i>新增</a>&nbsp;&nbsp;&nbsp;
-                                    <button type="button" class="btn btn-sm btn-default"
-                                            onclick="App.deleteMulti('/user/delete');"><i
-                                            class="fa fa-trash" style="margin-right: 5px"></i>删除
-                                    </button>&nbsp;&nbsp;&nbsp;
-                                    <a href="#" type="button" class="btn btn-sm btn-default"><i
-                                            class="fa fa-download" style="margin-right: 5px"></i>导入</a>&nbsp;&nbsp;&nbsp;
-                                    <a href="#" type="button" class="btn btn-sm btn-default"><i
-                                            class="fa fa-upload"
-                                            style="margin-right: 5px"></i>导出</a>&nbsp;&nbsp;&nbsp;
-                                    <!--点击搜索按钮则弹出高级搜索框-->
-                                    <button type="button" class="btn btn-sm btn-primary"
-                                            onclick="$('.box-info-search').css('display')=='none' ? $('.box-info-search').show('fast') : $('.box-info-search').hide('fast') ">
-                                        <i
-                                                class="fa fa-search" style="margin-right: 5px"></i>搜索
-                                    </button>&nbsp;&nbsp;&nbsp;
-                                </div>
-
-                            </div>
-                            <!-- /.modal -->
-                            <%--<div class="box-tools">--%>
-                            <%----%>
-                            <%--</div>--%>
                         </div>
                         <!-- /.box-header -->
-                        <div class="box-body table-responsive no-padding">
-                            <table class="table table-hover">
+                        <div class="box-body">
+                            <a href="/user/form" type="button"
+                               class="btn btn-sm btn-default"><i
+                                    class="fa fa-plus" style="margin-right: 5px"></i>新增</a>&nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-sm btn-default"
+                                    onclick="App.deleteMulti('/user/delete');"><i
+                                    class="fa fa-trash" style="margin-right: 5px"></i>删除
+                            </button>&nbsp;&nbsp;&nbsp;
+                            <a href="#" type="button" class="btn btn-sm btn-default"><i
+                                    class="fa fa-download" style="margin-right: 5px"></i>导入</a>&nbsp;&nbsp;&nbsp;
+                            <a href="#" type="button" class="btn btn-sm btn-default"><i
+                                    class="fa fa-upload"
+                                    style="margin-right: 5px"></i>导出</a>&nbsp;&nbsp;&nbsp;
+                            <!--点击搜索按钮则弹出高级搜索框-->
+                            <button type="button" class="btn btn-sm btn-primary"
+                                    onclick="$('.box-info-search').css('display')=='none' ? $('.box-info-search').show('fast') : $('.box-info-search').hide('fast') ">
+                                <i
+                                        class="fa fa-search" style="margin-right: 5px"></i>搜索
+                            </button>&nbsp;&nbsp;&nbsp;
+                        </div>
+                        <div class="box-body table-responsive ">
+                            <table id="dataTable" class="table table-hover">
                                 <thead>
                                 <tr>
                                     <!--主要的CheckBox-->
@@ -147,9 +139,9 @@
                                 <tbody>
                                 <c:forEach items="${tbUsers}" var="tbUser">
                                     <tr>
-                                        <!--用userId做为checkbox的ID 方便删除操作-->
-                                        <th><input id="${tbUser.id}" type="checkbox"
-                                                   class="minimal"></th>
+                                            <%--<!--用userId做为checkbox的ID 方便删除操作-->--%>
+                                            <%--<th><input id="${tbUser.id}" type="checkbox"--%>
+                                            <%--class="minimal"></th>--%>
                                         <td>${tbUser.id}</td>
                                         <td>${tbUser.username}</td>
                                         <td>${tbUser.phone}</td>
@@ -157,18 +149,18 @@
                                         <td><fmt:formatDate value="${tbUser.updated}"
                                                             pattern="yyyy-MM-dd HH:mm:ss"/></td>
                                             <%--<span class="label label-success">Approved</span>--%>
-                                        <td>
-                                            <a href="#" type="button"
-                                               class="btn btn-sm btn-default"><i
-                                                    class="fa fa-search"
-                                                    style="margin-right: 5px"></i>查看</a>
-                                            <a href="#" type="button"
-                                               class="btn btn-sm btn-primary"><i class="fa fa-edit"
-                                                                                 style="margin-right: 5px"></i>编辑</a>
-                                            <a href="#" type="button" class="btn btn-sm btn-danger"><i
-                                                    class="fa fa-trash"
-                                                    style="margin-right: 5px"></i>删除</a>
-                                        </td>
+                                            <%--<td>--%>
+                                            <%--<a href="#" type="button"--%>
+                                            <%--class="btn btn-sm btn-default"><i--%>
+                                            <%--class="fa fa-search"--%>
+                                            <%--style="margin-right: 5px"></i>查看</a>--%>
+                                            <%--<a href="#" type="button"--%>
+                                            <%--class="btn btn-sm btn-primary"><i class="fa fa-edit"--%>
+                                            <%--style="margin-right: 5px"></i>编辑</a>--%>
+                                            <%--<a href="#" type="button" class="btn btn-sm btn-danger"><i--%>
+                                            <%--class="fa fa-trash"--%>
+                                            <%--style="margin-right: 5px"></i>删除</a>--%>
+                                            <%--</td>--%>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
@@ -186,6 +178,75 @@
 <jsp:include page="../includes/footer.jsp"/>
 <!--自定义模态框-->
 <sys:modal/>
+
+
+<script>
+    $(function () {
+        $('#dataTable').DataTable({
+            //是否开启分页
+            "paging": true,
+            //客户端是否能调整每页条数
+            //左下角信息 总条数当前条数
+            "info": true,
+            "lengthChange": false,
+            //是否开启排序
+            "ordering": false,
+            //是否显示加载进度条
+            "processing": true,
+            //是否开启搜索功能
+            "searching": false,
+            //服务端模式 开启后分页排序等在服务端进行
+            "serverSide": true,
+            //延迟渲染 加快加载速度
+            "deferRender": true,
+            //ajax获取数据 地址
+            "ajax": {
+                "url": "/user/page",
+                "data": {
+                    "user_id": 451
+                }
+            }, "columns": [
+                {
+                    "data": function (row, type, val, meta) {
+                        return '<input id="' + row.id + '" type="checkbox" class="minimal" />';
+                    }
+                },
+                {"data": "id"},
+                {"data": "username"},
+                {"data": "phone"},
+                {"data": "email"},
+                {"data": "updated"},
+                {
+                    "data": function (row, type, val, meta) {
+                        return '<a href="#" type="button" class="btn btn-sm btn-default"><i class="fa fa-search"></i> 查看</a>&nbsp;&nbsp;&nbsp;' +
+                            '<a href="#" type="button" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;&nbsp;' +
+                            '<a href="#" type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i> 删除</a>'
+                    }
+                }
+            ],
+            // 国际化
+            "language": {
+                "sProcessing": "处理中...",
+                "sLengthMenu": "显示 _MENU_ 项结果",
+                "sZeroRecords": "没有匹配结果",
+                "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+                "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+                "sInfoPostFix": "",
+                "sSearch": "搜索:",
+                "sUrl": "",
+                "sEmptyTable": "表中数据为空",
+                "sLoadingRecords": "载入中...",
+                "sInfoThousands": ",",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "上页",
+                    "sNext": "下页",
+                    "sLast": "末页"
+                },
+        });
+    });
+</script>
 </body>
 </html>
 

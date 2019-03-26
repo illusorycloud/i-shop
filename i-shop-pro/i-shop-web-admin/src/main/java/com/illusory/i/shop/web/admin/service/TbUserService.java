@@ -6,6 +6,7 @@ import com.illusory.i.shop.domain.TbUser;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Administrator
@@ -31,5 +32,7 @@ public interface TbUserService {
 
     void deleteMulti(String[] ids);
 
+    List<TbUser> page(int start,int length);
 
+    int count();
 }

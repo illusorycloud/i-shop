@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author illusory
@@ -79,4 +80,22 @@ public interface TbUserDao {
      * @param ids
      */
     void deleteMulti(String[] ids);
+
+    /**
+     * 分页查询
+     *
+     * @param params 需要两个参数
+     *               start 记录开始位置
+     *               length 显示条数
+     *               类似SQL中的limit start length
+     * @return
+     */
+    List<TbUser> page(Map<String, Object> params);
+
+    /**
+     * 查询总记录条数
+     *
+     * @return
+     */
+    int count();
 }
