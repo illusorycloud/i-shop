@@ -51,13 +51,6 @@ public interface TbUserDao {
      */
     void update(TbUser tbUser);
 
-    /**
-     * 根据用户名进行模糊查询
-     *
-     * @param username
-     * @return
-     */
-    List<TbUser> selectByUsername(String username);
 
     /**
      * 根据邮箱查询用户信息
