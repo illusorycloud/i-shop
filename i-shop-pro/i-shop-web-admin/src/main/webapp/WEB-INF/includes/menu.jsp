@@ -58,7 +58,7 @@
                     <%--<li class="active"><a href="index.html"><i class="fa fa-circle-o"></i>--%>
                     <%--Dashboard v1</a></li>--%>
                     <li><a href="/content/category/list"><i class="fa fa-circle-o"></i>内容分类</a>
-                    <li><a href="#"><i class="fa fa-circle-o"></i>内容列表</a>
+                    <li><a href="/content/list"><i class="fa fa-circle-o"></i>内容列表</a>
                     </li>
                 </ul>
             </li>
