@@ -11,4 +11,11 @@
         <!--Spring中不扫描controller，交给SpringMVC扫描-->
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
+
+    <!-- 配置 Bean Validator 定义 -->
+    <!--手动注入静态变量-->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+    <bean id="beanValidator" class="com.illusory.i.shop.commons.validator.BeanValidator">
+        <property name="validator" ref="validator"/>
+    </bean>
 </beans>

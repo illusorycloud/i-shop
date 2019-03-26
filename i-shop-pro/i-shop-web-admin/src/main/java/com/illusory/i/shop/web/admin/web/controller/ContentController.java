@@ -1,7 +1,7 @@
 package com.illusory.i.shop.web.admin.web.controller;
 
-import com.illusory.i.shop.commoms.dto.BaseResult;
-import com.illusory.i.shop.commoms.dto.PageInfo;
+import com.illusory.i.shop.commons.dto.BaseResult;
+import com.illusory.i.shop.commons.dto.PageInfo;
 import com.illusory.i.shop.domain.TbContent;
 import com.illusory.i.shop.web.admin.service.TbContentService;
 

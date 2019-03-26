@@ -1,10 +1,9 @@
 package com.illusory.i.shop.web.admin.web.controller;
 
-import com.illusory.i.shop.commoms.dto.BaseResult;
-import com.illusory.i.shop.commoms.dto.PageInfo;
+import com.illusory.i.shop.commons.dto.BaseResult;
+import com.illusory.i.shop.commons.dto.PageInfo;
 import com.illusory.i.shop.domain.TbUser;
 import com.illusory.i.shop.web.admin.service.TbUserService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.util.Base64;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 

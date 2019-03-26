@@ -1,4 +1,4 @@
-package com.illusory.i.shop.commoms.utils;
+package com.illusory.i.shop.commons.utils;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

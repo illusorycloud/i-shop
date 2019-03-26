@@ -1,7 +1,7 @@
 package com.illusory.i.shop.web.admin.web.controller;
 
-import com.illusory.i.shop.commoms.constant.ConstantUtils;
-import com.illusory.i.shop.commoms.utils.CookieUtils;
+import com.illusory.i.shop.commons.constant.ConstantUtils;
+import com.illusory.i.shop.commons.utils.CookieUtils;
 import com.illusory.i.shop.domain.TbUser;
 import com.illusory.i.shop.web.admin.service.TbUserService;
 

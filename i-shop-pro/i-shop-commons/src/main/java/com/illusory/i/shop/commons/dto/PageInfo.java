@@ -1,6 +1,6 @@
-package com.illusory.i.shop.commoms.dto;
+package com.illusory.i.shop.commons.dto;
 
-import com.illusory.i.shop.commoms.persistence.BaseEntity;
+import com.illusory.i.shop.commons.persistence.BaseEntity;
 
 import java.io.Serializable;
 import java.util.List;

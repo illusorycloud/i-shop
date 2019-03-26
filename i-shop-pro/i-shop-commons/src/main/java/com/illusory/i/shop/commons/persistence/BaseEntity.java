@@ -1,4 +1,4 @@
-package com.illusory.i.shop.commoms.persistence;
+package com.illusory.i.shop.commons.persistence;
 
 import java.io.Serializable;
 import java.util.Date;

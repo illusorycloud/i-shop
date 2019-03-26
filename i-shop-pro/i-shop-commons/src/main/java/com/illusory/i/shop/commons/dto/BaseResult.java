@@ -1,4 +1,4 @@
-package com.illusory.i.shop.commoms.dto;
+package com.illusory.i.shop.commons.dto;
 
 import lombok.Getter;
 import lombok.Setter;

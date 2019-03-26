@@ -1,10 +1,10 @@
 package com.illusory.i.shop.web.admin.service.impl;
 
-import com.illusory.i.shop.commoms.dto.BaseResult;
-import com.illusory.i.shop.commoms.dto.PageInfo;
-import com.illusory.i.shop.commoms.utils.RegexUtils;
+import com.illusory.i.shop.commons.dto.BaseResult;
+import com.illusory.i.shop.commons.dto.PageInfo;
+import com.illusory.i.shop.commons.utils.RegexUtils;
+import com.illusory.i.shop.commons.validator.BeanValidator;
 import com.illusory.i.shop.domain.TbContent;
-import com.illusory.i.shop.domain.TbUser;
 import com.illusory.i.shop.web.admin.dao.TbContentDao;
 import com.illusory.i.shop.web.admin.service.TbContentService;
 
@@ -34,9 +34,13 @@ public class TbContentServiceImpl implements TbContentService {
 
     @Override
     public BaseResult save(TbContent tbContent) {
-        BaseResult baseResult = checkTbUser(tbContent);
+        String validator = BeanValidator.validator(tbContent);
+        //验证失败
+        if (validator != null) {
+            return BaseResult.fail(validator);
+        }
         //通过验证
-        if (baseResult.getStatus() == BaseResult.STATUS_SUCCESS) {
+        else {
             tbContent.setUpdated(new Date());
             //新增内容
             if (tbContent.getId() == null) {
@@ -47,9 +51,8 @@ public class TbContentServiceImpl implements TbContentService {
             else {
                 tbContentDao.update(tbContent);
             }
-            baseResult.setMessage("保存内容信息成功");
+            return BaseResult.success("保存内容信息成功");
         }
-        return baseResult;
     }
 
     @Override
@@ -99,26 +102,4 @@ public class TbContentServiceImpl implements TbContentService {
         return tbContentDao.count(tbContent);
     }
 
-
-    /**
-     * 有效性验证
-     *
-     * @param tbContent
-     */
-    private BaseResult checkTbUser(TbContent tbContent) {
-        //默认为success
-        BaseResult baseResult = BaseResult.success();
-        if (StringUtils.isBlank(tbContent.getPic())) {
-            baseResult = BaseResult.fail("邮箱不能为空,请重新输入");
-        } else if (!RegexUtils.isEmail(tbContent.getPic2())) {
-            baseResult = BaseResult.fail("邮箱格式不正确,请重新输入");
-        } else if (StringUtils.isBlank(tbContent.getSubTitle())) {
-            baseResult = BaseResult.fail("密码不能为空,请重新输入");
-        } else if (StringUtils.isBlank(tbContent.getTitle())) {
-            baseResult = BaseResult.fail("姓名不能为空,请重新输入");
-        } else if (StringUtils.isBlank(tbContent.getTitleDesc())) {
-            baseResult = BaseResult.fail("手机号不能为空,请重新输入");
-        }
-        return baseResult;
-    }
 }

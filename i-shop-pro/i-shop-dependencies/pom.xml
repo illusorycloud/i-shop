@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -38,6 +38,7 @@
         <spring-jdbc.version>4.3.17.RELEASE</spring-jdbc.version>
         <junit.version>4.12</junit.version>
         <jackson.version>2.9.5</jackson.version>
+        <hibernate-validator.version>5.3.4.Final</hibernate-validator.version>
     </properties>
 
     <dependencyManagement>
@@ -171,6 +172,14 @@
                 <version>${jackson.version}</version>
             </dependency>
             <!-- Json End -->
+
+            <!--HibernateValidator Begin-->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
+            <!--HibernateValidator End-->
         </dependencies>
     </dependencyManagement>
 

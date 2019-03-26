@@ -1,4 +1,4 @@
-package com.illusory.i.shop.commoms.constant;
+package com.illusory.i.shop.commons.constant;
 
 /**
  * @author illusoryCloud
