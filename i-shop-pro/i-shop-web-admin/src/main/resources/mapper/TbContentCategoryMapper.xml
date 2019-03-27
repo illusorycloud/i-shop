@@ -4,7 +4,6 @@
     <sql id="tbContentCategoryColumns">
         a.id,
         a.name,
-        a.parent_id AS parentId,
         a.status,
         a.sort_order AS sortOrder,
         a.is_parent AS isParent,
@@ -51,16 +50,16 @@
 
     <insert id="insert">
         INSERT INTO tb_content_category (
-            `parent_id`,
-            `name`,
-            `status`,
-            `sort_order`,
-            `is_parent`,
-            `created`,
-            `updated`
+          `parent_id`,
+          `name`,
+          `status`,
+          `sort_order`,
+          `is_parent`,
+          `created`,
+          `updated`
         )
         VALUES
-        (
+          (
             #{parent.id},
             #{name},
             #{status},
@@ -68,7 +67,7 @@
             #{isParent},
             #{created},
             #{updated}
-        );
+          );
     </insert>
 
     <delete id="delete">
@@ -81,16 +80,16 @@
 
     <update id="update">
         UPDATE
-            tb_content_category
+          tb_content_category
         SET
-            `id` = #{id},
-            `parent_id` = #{parent.id},
-            `name` = #{name},
-            `status` = #{status},
-            `sort_order` = #{sortOrder},
-            `is_parent` = #{isParent},
-            `created` = #{created},
-            `updated` = #{updated}
+          `id` = #{id},
+          `parent_id` = #{parent.id},
+          `name` = #{name},
+          `status` = #{status},
+          `sort_order` = #{sortOrder},
+          `is_parent` = #{isParent},
+          `created` = #{created},
+          `updated` = #{updated}
         WHERE `id` = #{id}
     </update>
 </mapper>
