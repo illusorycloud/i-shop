@@ -10,7 +10,7 @@ import com.illusory.i.shop.domain.TbUser;
  */
 public interface TbUserService extends BaseService<TbUser> {
     /**
-     * 登录
+     * 用户登录
      *
      * @param email
      * @param password

@@ -2,6 +2,7 @@ package com.illusory.i.shop.web.admin.dao;
 
 import com.illusory.i.shop.commons.persistence.BaseDao;
 import com.illusory.i.shop.domain.TbContent;
+
 import org.springframework.stereotype.Repository;
 
 /**
@@ -13,4 +14,10 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface TbContentDao extends BaseDao<TbContent> {
+    /**
+     * 根据类目 ID 删除内容
+     *
+     * @param categoryIds
+     */
+    void deleteByCategoryId(String[] categoryIds);
 }

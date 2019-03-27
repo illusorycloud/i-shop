@@ -1,11 +1,14 @@
 package com.illusory.i.shop.commons.validator;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import javax.validation.Validator;
-import java.util.*;
 
 /**
  * JSR303 Validator(Hibernate Validator)工具类.

@@ -11,5 +11,9 @@ import com.illusory.i.shop.domain.TbContent;
  * @date 2019/3/26
  */
 public interface TbContentService extends BaseService<TbContent> {
-
+    /**
+     * 根据类目 ID 删除内容
+     * @param categoryIds
+     */
+    void deleteByCategoryId(String[] categoryIds);
 }

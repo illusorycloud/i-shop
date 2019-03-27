@@ -1,11 +1,13 @@
 package com.illusory.i.shop.domain;
 
-import com.illusory.i.shop.commons.persistence.BaseEntity;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import com.illusory.i.shop.commons.persistence.BaseTreeEntity;
+
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotNull;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author illusory
@@ -14,7 +16,7 @@ import javax.validation.constraints.NotNull;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class TbContentCategory extends BaseEntity {
+public class TbContentCategory extends BaseTreeEntity {
     private Long parentId;
     @Length(min = 1, max = 20, message = "分类名称必须介于 1 - 20 位之间")
     private String name;

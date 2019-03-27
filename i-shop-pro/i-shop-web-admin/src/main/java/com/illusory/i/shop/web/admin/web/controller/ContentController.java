@@ -1,12 +1,11 @@
 package com.illusory.i.shop.web.admin.web.controller;
 
 import com.illusory.i.shop.commons.dto.BaseResult;
-import com.illusory.i.shop.commons.dto.PageInfo;
 import com.illusory.i.shop.domain.TbContent;
+import com.illusory.i.shop.web.admin.abstracts.AbstractBaseController;
 import com.illusory.i.shop.web.admin.service.TbContentService;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletRequest;
-
 /**
  * @author illusory
  * @version 1.0.0
@@ -24,103 +21,100 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 @RequestMapping(value = "/content")
-public class ContentController {
-    @Autowired
-    private TbContentService tbContentService;
+public class ContentController extends AbstractBaseController<TbContent, TbContentService> {
 
-
-    /**
-     * @param id
-     * @return
-     * @ModelAttribute 自动将返回值放入Model中
-     */
     @ModelAttribute
-    public TbContent getTbUser(Long id) {
+    public TbContent getTbContent(Long id) {
         TbContent tbContent = null;
-        //id不为空则从数据库获取
+
+        // id 不为空，则从数据库获取
         if (id != null) {
-            tbContent = tbContentService.getById(id);
-        }
-        //为空则
-        else {
+            tbContent = service.getById(id);
+        } else {
             tbContent = new TbContent();
         }
+
         return tbContent;
     }
 
     /**
-     * 跳转到内容列表
+     * 跳转内容列表页
      *
      * @return
      */
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @Override
+    @RequestMapping(value = "list", method = RequestMethod.GET)
     public String list() {
         return "content_list";
     }
 
-    @RequestMapping(value = "/form", method = RequestMethod.GET)
-    public String from() {
+    /**
+     * 跳转表单页
+     *
+     * @return
+     */
+    @Override
+    @RequestMapping(value = "form", method = RequestMethod.GET)
+    public String form() {
         return "content_form";
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String save(TbContent tbContent, RedirectAttributes redirectAttributes, Model model) {
-        BaseResult baseResult = tbContentService.save(tbContent);
-        //保存成功 重定向 所以用RedirectAttributes 消息存放在session中
-        if (baseResult.getStatus() == BaseResult.STATUS_SUCCESS) {
+    /**
+     * 保存
+     *
+     * @param entity
+     * @param model
+     * @param redirectAttributes
+     * @return
+     */
+    @Override
+    @RequestMapping(value = "save", method = RequestMethod.POST)
+    public String save(TbContent entity, Model model, RedirectAttributes redirectAttributes) {
+        BaseResult baseResult = service.save(entity);
+
+        // 保存成功
+        if (baseResult.getStatus() == 200) {
             redirectAttributes.addFlashAttribute("baseResult", baseResult);
             return "redirect:/content/list";
         }
-        //保存失败 跳转 可以用Model 消息存放在request中
+
+        // 保存失败
         else {
             model.addAttribute("baseResult", baseResult);
             return "content_form";
         }
     }
 
+    /**
+     * 删除
+     *
+     * @param ids
+     * @return
+     */
+    @Override
     @ResponseBody
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public BaseResult delete(String ids, Model model) {
+    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    public BaseResult delete(String ids) {
         BaseResult baseResult = null;
-        if (StringUtils.isNoneBlank(ids)) {
+        if (StringUtils.isNotBlank(ids)) {
             String[] idArray = ids.split(",");
-            tbContentService.deleteMulti(idArray);
-            baseResult = BaseResult.success("删除用户成功");
+            service.deleteMulti(idArray);
+            baseResult = BaseResult.success("删除内容成功");
         } else {
-            baseResult = BaseResult.fail("删除失败");
+            baseResult = BaseResult.fail("删除内容失败");
         }
+
         return baseResult;
     }
 
     /**
-     * 分页查询
+     * 跳转详情页
      *
-     * @param request
      * @return
      */
-    @ResponseBody
-    @RequestMapping(value = "/page", method = RequestMethod.GET)
-    public PageInfo<TbContent> page(HttpServletRequest request, TbContent tbContent) {
-        String strDraw = request.getParameter("draw");
-        String strStart = request.getParameter("start");
-        String strLength = request.getParameter("length");
-
-        int draw = strDraw == null ? 0 : Integer.parseInt(strDraw);
-        int start = strStart == null ? 0 : Integer.parseInt(strStart);
-        int length = strLength == null ? 10 : Integer.parseInt(strLength);
-
-        //封装Datatables需要的数据
-        return tbContentService.page(draw, start, length, tbContent);
-    }
-
-    /**
-     * 显示内容详情
-     *
-     * @param tbContent
-     * @return
-     */
-    @RequestMapping(value = "/detail", method = RequestMethod.GET)
-    public String detail(TbContent tbContent) {
+    @Override
+    @RequestMapping(value = "detail", method = RequestMethod.GET)
+    public String detail() {
         return "content_detail";
     }
 }
