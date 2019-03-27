@@ -10,6 +10,7 @@ import com.illusory.i.shop.web.admin.service.TbContentService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,7 +24,7 @@ import java.util.List;
  * @date 2019/3/26
  */
 @Service
-//@Transactional(readOnly = true)
+@Transactional(readOnly = true)
 public class TbContentCategoryServiceImpl extends AbstractBaseTreeServiceImpl<TbContentCategory, TbContentCategoryDao> implements TbContentCategoryService {
 
     @Autowired
@@ -36,7 +37,7 @@ public class TbContentCategoryServiceImpl extends AbstractBaseTreeServiceImpl<Tb
      * @return
      */
     @Override
-//    @Transactional(readOnly = false)
+    @Transactional(readOnly = false)
     public BaseResult save(TbContentCategory entity) {
         String validator = BeanValidator.validator(entity);
         if (validator != null) {
@@ -88,7 +89,7 @@ public class TbContentCategoryServiceImpl extends AbstractBaseTreeServiceImpl<Tb
      * @param id
      */
     @Override
-//    @Transactional(readOnly = false)
+    @Transactional(readOnly = false)
     public void delete(Long id) {
         List<String> targetArray = new ArrayList<>();
         findAllChild(targetArray, id);

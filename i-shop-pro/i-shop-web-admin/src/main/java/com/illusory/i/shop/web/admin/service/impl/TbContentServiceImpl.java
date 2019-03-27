@@ -8,6 +8,7 @@ import com.illusory.i.shop.web.admin.dao.TbContentDao;
 import com.illusory.i.shop.web.admin.service.TbContentService;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
@@ -17,11 +18,11 @@ import java.util.Date;
  * @date 2019/3/26
  */
 @Service
-//@Transactional(readOnly = true)
+@Transactional(readOnly = true)
 public class TbContentServiceImpl extends AbstractBaseServiceImpl<TbContent, TbContentDao> implements TbContentService {
 
     @Override
-//    @Transactional(readOnly = false)
+    @Transactional(readOnly = false)
     public BaseResult save(TbContent tbContent) {
         String validator = BeanValidator.validator(tbContent);
 
@@ -51,7 +52,7 @@ public class TbContentServiceImpl extends AbstractBaseServiceImpl<TbContent, TbC
     }
 
     @Override
-//    @Transactional(readOnly = false)
+    @Transactional(readOnly = false)
     public void deleteByCategoryId(String[] categoryIds) {
         dao.deleteByCategoryId(categoryIds);
     }

@@ -5,7 +5,6 @@ import com.illusory.i.shop.web.admin.service.TbUserService;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -13,6 +12,8 @@ import org.springframework.util.DigestUtils;
 
 import java.util.Date;
 import java.util.List;
+
+import javax.validation.Validator;
 
 /**
  * @author Administrator
@@ -24,6 +25,7 @@ import java.util.List;
 public class TbUserServiceTest {
     @Autowired
     private TbUserService tbUserService;
+    private static Validator validator;
 
     @Test
     public void testSelectAll() {
@@ -65,7 +67,7 @@ public class TbUserServiceTest {
     }
 
     @Test
-    public void testMd5(){
+    public void testMd5() {
         System.out.println(DigestUtils.md5DigestAsHex("123456".getBytes()));
     }
 
