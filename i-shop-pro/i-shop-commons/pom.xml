@@ -25,20 +25,6 @@
         </dependency>
         <!-- Spring End -->
 
-        <!-- Commons Begin -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-        </dependency>
-        <!-- Commons End -->
-
-        <!-- Lombok Begin -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-        <!-- Lombok End -->
-
         <!-- Log Begin -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -62,17 +48,20 @@
         </dependency>
         <!-- Log End -->
 
-        <!-- Servlet Begin -->
+        <!-- Commons Begin -->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <scope>provided</scope>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
         </dependency>
-        <!-- Servlet End -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-email</artifactId>
+        </dependency>
+        <!-- Commons End -->
 
         <!-- Json Begin -->
         <dependency>
@@ -89,12 +78,28 @@
         </dependency>
         <!-- Json End -->
 
-        <!--HibernateValidator Begin-->
+        <!-- Apache Http Begin -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>fluent-hc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpmime</artifactId>
+        </dependency>
+        <!-- Apache Http End -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
         </dependency>
-        <!--HibernateValidator End-->
     </dependencies>
 
 </project>

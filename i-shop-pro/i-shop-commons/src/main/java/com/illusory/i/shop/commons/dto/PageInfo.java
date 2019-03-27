@@ -1,13 +1,10 @@
 package com.illusory.i.shop.commons.dto;
 
 import com.illusory.i.shop.commons.persistence.BaseEntity;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.util.List;
-
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
 /**
  * 分页对象
@@ -16,9 +13,7 @@ import lombok.ToString;
  * @version 1.0.0
  * @date 2019/3/26
  */
-@Getter
-@Setter
-@ToString
+@Data
 public class PageInfo<T extends BaseEntity> implements Serializable {
     private int draw;
     /**

@@ -9,6 +9,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
+        <module>i-shop-external</module>
         <module>i-shop-dependencies</module>
         <module>i-shop-commons</module>
         <module>i-shop-domain</module>
