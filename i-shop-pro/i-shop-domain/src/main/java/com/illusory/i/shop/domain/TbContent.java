@@ -9,7 +9,9 @@ import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.NotNull;
 
 /**
- * @author Administrator
+ * 内容实体类
+ *
+ * @author illusory
  * @version 1.0.0
  * @date 2019/3/26 0026
  */

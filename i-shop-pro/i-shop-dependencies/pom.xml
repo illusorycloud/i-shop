@@ -214,11 +214,13 @@
             </dependency>
             <!-- Google Code End -->
 
+            <!--lombok Begin-->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
+            <!--lombok End-->
         </dependencies>
     </dependencyManagement>
 

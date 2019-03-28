@@ -2,8 +2,6 @@ package com.illusory.i.shop.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.illusory.i.shop.commons.persistence.BaseEntity;
-
-import com.illusory.i.shop.commons.utils.RegexUtils;
 import com.illusory.i.shop.commons.utils.RegexpUtils;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,6 +10,8 @@ import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.Pattern;
 
 /**
+ * 用户实体类
+ *
  * @author illusory
  * @version 1.0.0
  * @date 2019/3/25

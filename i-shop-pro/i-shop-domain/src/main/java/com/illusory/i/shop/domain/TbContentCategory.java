@@ -1,15 +1,15 @@
 package com.illusory.i.shop.domain;
 
 import com.illusory.i.shop.commons.persistence.BaseTreeEntity;
-
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotNull;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /**
+ * 内容分类实体类
+ *
  * @author illusory
  * @version 1.0.0
  * @date 2019/3/26

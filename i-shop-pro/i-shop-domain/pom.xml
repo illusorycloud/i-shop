@@ -17,11 +17,14 @@
     <description></description>
 
     <dependencies>
+        <!--Project Begin-->
         <dependency>
             <groupId>com.illusory</groupId>
             <artifactId>i-shop-commons</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+        <!--Project End-->
+
     </dependencies>
 
 </project>
