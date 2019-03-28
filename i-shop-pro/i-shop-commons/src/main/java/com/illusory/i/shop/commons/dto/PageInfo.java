@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 分页对象
+ * 自定义分页对象
  *
  * @author illusory
  * @version 1.0.0

@@ -1,6 +1,7 @@
 package com.illusory.i.shop.commons.constant;
 
 /**
+ * 常量类
  * @author illusoryCloud
  * @version 1.0.0
  * @date 2019/3/24 17:51

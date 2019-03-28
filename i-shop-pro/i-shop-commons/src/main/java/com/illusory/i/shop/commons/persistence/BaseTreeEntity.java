@@ -1,13 +1,14 @@
 package com.illusory.i.shop.commons.persistence;
 
-import java.io.Serializable;
-
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
- * @author Administrator
+ * 树形实体类基类
+ * @author illusory
  * @version 1.0.0
- * @date 2019/3/27 0027
+ * @date 2019/3/27
  */
 @Data
 public abstract class BaseTreeEntity<T extends BaseEntity> extends BaseEntity implements Serializable {

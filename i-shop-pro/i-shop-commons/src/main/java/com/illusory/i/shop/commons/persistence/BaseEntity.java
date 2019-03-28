@@ -3,10 +3,10 @@ package com.illusory.i.shop.commons.persistence;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * @author Administrator
+/**实体类基类
+ * @author illusory
  * @version 1.0.0
- * @date 2019/3/26 0026
+ * @date 2019/3/26
  */
 public abstract class BaseEntity implements Serializable {
     private Long id;
