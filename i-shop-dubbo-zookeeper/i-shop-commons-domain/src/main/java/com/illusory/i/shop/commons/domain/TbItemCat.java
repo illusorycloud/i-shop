@@ -1,5 +1,6 @@
 package com.illusory.i.shop.commons.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Table(name = "tb_item_cat")
-public class TbItemCat {
+public class TbItemCat implements Serializable {
     /**
      * 类目ID
      */

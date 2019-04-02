@@ -1,5 +1,6 @@
 package com.illusory.i.shop.commons.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.GeneratedValue;
@@ -8,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Table(name = "tb_user")
-public class TbUser {
+public class TbUser implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
