@@ -27,4 +27,4 @@ hs_err_pid*
 /i-shop.iml
 *.iml
 **/target/
-rebel.xml
+**/rebel.xml
