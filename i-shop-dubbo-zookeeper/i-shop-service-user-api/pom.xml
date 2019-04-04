@@ -17,6 +17,7 @@
     <inceptionYear>2019-Now</inceptionYear>
 
     <dependencies>
+        <!--pagehelper分页-->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
