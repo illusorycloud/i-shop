@@ -20,11 +20,11 @@ services:
 # Dubbo Config properties
 dubbo:
   scan:
-    basePackages: com.funtl.myshop.service.content.consumer
+    basePackages: com.illusory.i-shop.service.content.consumer
   ## ApplicationConfig Bean
   application:
-    id: myshop-service-content-consumer
-    name: myshop-service-content-consumer
+    id: i-shop-service-content-consumer
+    name: i-shop-service-content-consumer
   ## ProtocolConfig Bean
   protocol:
     id: dubbo
@@ -35,7 +35,7 @@ dubbo:
   ## RegistryConfig Bean
   registry:
     id: zookeeper
-    address: zookeeper://192.168.10.131:2181?backup=192.168.10.131:2182,192.168.10.131:2183
+    address: zookeeper://192.168.5.151:2181?backup=192.168.5.151:2182,192.168.5.151:2183
 
 # Dubbo Endpoint (default status is disable)
 endpoints:

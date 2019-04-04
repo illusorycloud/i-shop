@@ -9,10 +9,10 @@ import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboar
 
 @EnableHystrix
 @EnableHystrixDashboard
-@SpringBootApplication(scanBasePackages = "com.funtl.myshop", exclude = DataSourceAutoConfiguration.class)
-public class MyShopServiceContentConsumerApplication {
+@SpringBootApplication(scanBasePackages = "com.illusory.i.shop", exclude = DataSourceAutoConfiguration.class)
+public class IShopServiceContentConsumerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(MyShopServiceContentConsumerApplication.class, args);
+        SpringApplication.run(IShopServiceContentConsumerApplication.class, args);
         Main.main(args);
     }
 }

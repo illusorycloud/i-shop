@@ -12,7 +12,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @EnableHystrixDashboard
 @SpringBootApplication(scanBasePackages = "com.illusory.i.shop")
 @EnableTransactionManagement
-@MapperScan(basePackages = "com.funtl.myshop.commons.mapper")
+@MapperScan(basePackages = "com.illusory.i.shop.commons.mapper")
 public class IShopServiceContentProviderApplication {
     public static void main(String[] args) {
         SpringApplication.run(IShopServiceContentProviderApplication.class, args);

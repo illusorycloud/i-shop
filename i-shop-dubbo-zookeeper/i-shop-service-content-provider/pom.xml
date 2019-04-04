@@ -48,7 +48,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.illusory.i-shop.service.content.provider.MyShopServiceContentProviderApplication</mainClass>
+                    <mainClass>com.illusory.i.shop.service.content.provider.IShopServiceContentProviderApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

@@ -5,6 +5,7 @@ import com.illusory.i.shop.commons.domain.TbContent;
 import com.illusory.i.shop.service.content.api.TbContentService;
 import com.github.pagehelper.PageInfo;
 import com.illusory.i.shop.statics.backend.dto.DataTableDTO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +13,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * @author illusory
+ * @version 1.0.0
+ * @date 2019/4/4
+ */
 @Controller
 @RequestMapping(value = "content")
 public class TbContentController {

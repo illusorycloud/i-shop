@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -10,11 +10,11 @@
         <relativePath>../i-shop-dependencies/pom.xml</relativePath>
     </parent>
 
-    <artifactId>i-shop-service-content-consumer</artifactId>
+    <artifactId>i-shop-api-gateway</artifactId>
     <packaging>jar</packaging>
 
     <url>http://www.illusory.com</url>
-    <inceptionYear>2019-Now</inceptionYear>
+    <inceptionYear>2018-Now</inceptionYear>
 
     <dependencies>
         <!-- Spring Boot Starter Settings -->
@@ -30,16 +30,6 @@
             <artifactId>i-shop-commons-dubbo</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.illusory</groupId>
-            <artifactId>i-shop-static-backend</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.illusory</groupId>
-            <artifactId>i-shop-service-content-api</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -48,7 +38,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.illusory.i.shop.service.content.consumer.IShopServiceContentConsumerApplication</mainClass>
+                    <mainClass>com.illusory.i.shop.api.gateway.MyShopApiGatewayApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

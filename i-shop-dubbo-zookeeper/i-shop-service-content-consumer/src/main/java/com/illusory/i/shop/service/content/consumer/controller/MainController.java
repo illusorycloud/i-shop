@@ -3,7 +3,11 @@ package com.illusory.i.shop.service.content.consumer.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+/**
+ * @author illusory
+ * @version 1.0.0
+ * @date 2019/4/4
+ */
 @Controller
 public class MainController {
 
