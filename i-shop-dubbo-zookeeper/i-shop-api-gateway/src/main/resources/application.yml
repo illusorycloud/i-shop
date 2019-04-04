@@ -1,7 +1,7 @@
 # Spring boot application
 spring:
   application:
-    name: i-shop-service-content-consumer
+    name: i-shop-api-gateway
   thymeleaf:
     cache: false # 开发时关闭缓存,不然没法看到实时页面
     mode: LEGACYHTML5 # 用非严格的 HTML
@@ -9,18 +9,21 @@ spring:
     servlet:
       content-type: text/html
 server:
-  port: 8602
+  port: 9000
 
 # Services Versions
 services:
   versions:
+    user:
+      v1:
+        1.0.0
     content:
       v1: 1.0.0
 
 # Dubbo Config properties
 dubbo:
   scan:
-    basePackages: com.illusory.i.shop.service.content.consumer
+    basePackages: com.illusory.i-shop.service.content.consumer
   ## ApplicationConfig Bean
   application:
     id: i-shop-service-content-consumer

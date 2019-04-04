@@ -20,7 +20,7 @@ services:
 # Dubbo Config properties
 dubbo:
   scan:
-    basePackages: com.illusory.i.shop.service.user.consumer.controller
+    basePackages: com.illusory.i.shop.service.user.consumer
   ## ApplicationConfig Bean
   application:
     id: i-shop-service-user-consumer
