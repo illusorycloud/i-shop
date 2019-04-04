@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: i-shop-service-upload
+server:
+  port: 8888
+
+fastdfs:
+  base:
+    url: http://192.168.5.156:8888/
+storage:
+  fastdfs:
+  tracker_server: 192.168.5.156:22122
