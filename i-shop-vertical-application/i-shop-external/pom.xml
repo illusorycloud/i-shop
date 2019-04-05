@@ -10,10 +10,10 @@
         <relativePath>../i-shop-dependencies/pom.xml</relativePath>
     </parent>
 
-    <artifactId>my-shop-external</artifactId>
+    <artifactId>i-shop-external</artifactId>
     <packaging>jar</packaging>
 
-    <name>my-shop-external</name>
+    <name>i-shop-external</name>
     <description></description>
 
     <build>
