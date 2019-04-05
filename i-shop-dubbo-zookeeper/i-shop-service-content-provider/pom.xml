@@ -10,7 +10,7 @@
         <relativePath>../i-shop-dependencies/pom.xml</relativePath>
     </parent>
 
-    <artifactId>i-shop-service-user-consumer</artifactId>
+    <artifactId>i-shop-service-content-provider</artifactId>
     <packaging>jar</packaging>
 
     <url>http://www.illusory.com</url>
@@ -24,12 +24,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.ctrip.framework.apollo</groupId>
-            <artifactId>apollo-client</artifactId>
-            <version>1.1.0</version>
-        </dependency>
-
         <!-- Projects Settings -->
         <dependency>
             <groupId>com.illusory</groupId>
@@ -38,12 +32,12 @@
         </dependency>
         <dependency>
             <groupId>com.illusory</groupId>
-            <artifactId>i-shop-static-backend</artifactId>
+            <artifactId>i-shop-commons-mapper</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>com.illusory</groupId>
-            <artifactId>i-shop-service-user-api</artifactId>
+            <artifactId>i-shop-service-content-api</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
@@ -54,10 +48,9 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.illusory.i.shop.service.user.consumer.IShopServiceUserConsumerApplication</mainClass>
+                    <mainClass>com.illusory.i.shop.service.content.provider.IShopServiceContentProviderApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>

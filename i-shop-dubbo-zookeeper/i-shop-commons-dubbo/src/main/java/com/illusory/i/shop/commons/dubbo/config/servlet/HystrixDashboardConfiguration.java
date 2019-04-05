@@ -1,4 +1,4 @@
-package com.illusory.ishop.commons.dubbo.config.servlet;
+package com.illusory.i.shop.commons.dubbo.config.servlet;
 
 import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
 

@@ -1,9 +1,9 @@
-package com.illusory.i.shop.service.user.consumer.controller;
+package com.illusory.i.shop.service.content.consumer.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.illusory.i.shop.commons.domain.TbContent;
+import com.illusory.i.shop.service.content.api.TbContentService;
 import com.github.pagehelper.PageInfo;
-import com.illusory.i.shop.commons.domain.TbUser;
-import com.illusory.i.shop.service.user.api.TbUserService;
 import com.illusory.i.shop.statics.backend.dto.DataTableDTO;
 
 import org.springframework.stereotype.Controller;
@@ -16,14 +16,13 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * @author illusory
  * @version 1.0.0
- * @date 2019/4/2
+ * @date 2019/4/4
  */
 @Controller
-@RequestMapping(value = "user")
-public class TbUserController {
-
-    @Reference(version = "${services.versions.user.v1}")
-    private TbUserService tbUserService;
+@RequestMapping(value = "content")
+public class TbContentController {
+    @Reference(version = "${services.versions.content.v1}")
+    private TbContentService tbContentService;
 
     /**
      * 跳转到列表页
@@ -32,12 +31,22 @@ public class TbUserController {
      */
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String list() {
-        return "user/list";
+        return "content/list";
+    }
+
+    /**
+     * 跳转到表单页
+     *
+     * @return
+     */
+    @RequestMapping(value = "form", method = RequestMethod.GET)
+    public String form() {
+        return "content/form";
     }
 
     @ResponseBody
     @RequestMapping(value = "page", method = RequestMethod.GET)
-    public DataTableDTO<TbUser> page(HttpServletRequest request, TbUser tbUser) {
+    public DataTableDTO<TbContent> page(HttpServletRequest request, TbContent tbContent) {
         String strDraw = request.getParameter("draw");
         String strStart = request.getParameter("start");
         String strLength = request.getParameter("length");
@@ -47,8 +56,8 @@ public class TbUserController {
         int length = strLength == null ? 10 : Integer.parseInt(strLength);
 
         // 封装 Datatables 需要的结果
-        PageInfo<TbUser> pageInfo = tbUserService.page(start, length, tbUser);
-        DataTableDTO<TbUser> dataTableDTO = new DataTableDTO<>();
+        PageInfo<TbContent> pageInfo = tbContentService.page(start, length, tbContent);
+        DataTableDTO<TbContent> dataTableDTO = new DataTableDTO<>();
         dataTableDTO.setData(pageInfo.getList());
         dataTableDTO.setDraw(draw);
         dataTableDTO.setRecordsTotal(pageInfo.getTotal());
@@ -57,4 +66,3 @@ public class TbUserController {
         return dataTableDTO;
     }
 }
-

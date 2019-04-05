@@ -1,7 +1,7 @@
 # Spring boot application
 spring:
   application:
-    name: i-shop-service-user-consumer
+    name: i-shop-service-content-consumer
   thymeleaf:
     cache: false # 开发时关闭缓存,不然没法看到实时页面
     mode: LEGACYHTML5 # 用非严格的 HTML
@@ -9,27 +9,27 @@ spring:
     servlet:
       content-type: text/html
 server:
-  port: 8601
+  port: 8602
 
 # Services Versions
 services:
   versions:
-    user:
+    content:
       v1: 1.0.0
 
 # Dubbo Config properties
 dubbo:
   scan:
-    basePackages: com.illusory.i.shop.service.user.consumer
+    basePackages: com.illusory.i.shop.service.content.consumer
   ## ApplicationConfig Bean
   application:
-    id: i-shop-service-user-consumer
-    name: i-shop-service-user-consumer
+    id: i-shop-service-content-consumer
+    name: i-shop-service-content-consumer
   ## ProtocolConfig Bean
   protocol:
     id: dubbo
     name: dubbo
-    port: 20881
+    port: 30882
     status: server
     serialization: kryo
   ## RegistryConfig Bean
@@ -44,7 +44,7 @@ endpoints:
 
 management:
   server:
-    port: 8701
+    port: 8702
   # Dubbo Health
   health:
     dubbo:
@@ -69,10 +69,3 @@ management:
     web:
       exposure:
         include: "*"
-
-# Apollo
-apollo:
-  bootstrap:
-    enabled: true
-    # will inject 'application' and 'TEST1.apollo' namespaces in bootstrap phase
-    namespaces: application

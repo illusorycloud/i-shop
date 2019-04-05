@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
-    <title>我的商城 | 用户管理</title>
+    <title>我的商城 | 内容管理</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
 
@@ -43,60 +43,14 @@
 
 <div class="row">
     <div class="col-md-12">
-        <!-- BEGIN SAMPLE FORM PORTLET-->
         <div class="portlet light bordered">
             <div class="portlet-title">
                 <div class="caption">
-                    <span class="caption-subject bold uppercase"> 高级搜索</span>
-                </div>
-            </div>
-            <div class="portlet-body form">
-                <form role="form">
-                    <div class="form-body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group form-md-line-input form-md-floating-label has-info">
-                                    <input type="text" class="form-control" id="username">
-                                    <label for="username">用户名</label>
-                                    <span class="help-block"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group form-md-line-input form-md-floating-label has-info">
-                                    <input type="text" class="form-control" id="phone">
-                                    <label for="phone">手机</label>
-                                    <span class="help-block"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group form-md-line-input form-md-floating-label has-info">
-                                    <input type="text" class="form-control" id="email">
-                                    <label for="email">邮箱</label>
-                                    <span class="help-block"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-actions noborder">
-                        <button type="button" class="btn blue" onclick="search();">搜索</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!-- END SAMPLE FORM PORTLET-->
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-12">
-        <div class="portlet light bordered">
-            <div class="portlet-title">
-                <div class="caption">
-                    <span class="caption-subject bold uppercase">用户列表</span>
+                    <span class="caption-subject bold uppercase">内容列表</span>
                 </div>
                 <div class="actions">
                     <div class="btn-group btn-group-devided" data-toggle="buttons">
-                        <label class="btn btn-transparent blue btn-outline btn-circle btn-sm">
+                        <label class="btn btn-transparent blue btn-outline btn-circle btn-sm" onclick="window.location.href='/content/form';">
                             <i class="fa fa-plus"></i>
                             <input type="radio" class="toggle">新增</label>
                         <label class="btn btn-transparent yellow btn-outline btn-circle btn-sm">
@@ -113,9 +67,9 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>用户名</th>
-                        <th>手机号</th>
-                        <th>邮箱</th>
+                        <th>标题</th>
+                        <th>子标题</th>
+                        <th>标题描述</th>
                         <th>更新时间</th>
                         <th>操作</th>
                     </tr>
@@ -169,9 +123,9 @@
     $(function () {
         const _columns = [
             {"data": "id"},
-            {"data": "username"},
-            {"data": "phone"},
-            {"data": "email"},
+            {"data": "title"},
+            {"data": "subTitle"},
+            {"data": "titleDesc"},
             {"data": "updated"},
             {
                 "data": function (row, type, val, meta) {
@@ -180,19 +134,8 @@
             }
         ];
 
-        _dataTable = Datatables.initDataTables("/user/page", _columns);
+        _dataTable = Datatables.initDataTables("/content/page", _columns);
     });
-
-    function search() {
-        let username = $("#username").val();
-        let phone = $("#phone").val();
-        let email = $("#email").val();
-
-        if ($.trim(username) != "") _dataTable.setAjaxParam("username", username);
-        if ($.trim(phone) != "") _dataTable.setAjaxParam("phone", phone);
-        if ($.trim(email) != "") _dataTable.setAjaxParam("email", email);
-        _dataTable.getDataTable().ajax.reload();
-    }
 </script>
 </body>
 </html>
