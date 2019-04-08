@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 @Table(name = "tb_content")
 public class TbContent implements Serializable {
+    private static final long serialVersionUID = -718968187871724208L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

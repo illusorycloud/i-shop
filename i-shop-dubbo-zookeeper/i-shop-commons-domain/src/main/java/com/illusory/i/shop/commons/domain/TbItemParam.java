@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 @Table(name = "tb_item_param")
 public class TbItemParam implements Serializable {
+    private static final long serialVersionUID = -4181343100817041198L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

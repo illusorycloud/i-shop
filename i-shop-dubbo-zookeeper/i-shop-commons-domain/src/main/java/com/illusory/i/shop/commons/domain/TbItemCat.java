@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 @Table(name = "tb_item_cat")
 public class TbItemCat implements Serializable {
+    private static final long serialVersionUID = -2469550034011299626L;
     /**
      * 类目ID
      */

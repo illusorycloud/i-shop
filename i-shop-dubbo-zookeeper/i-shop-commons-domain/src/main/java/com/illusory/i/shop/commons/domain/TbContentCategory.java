@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 @Table(name = "tb_content_category")
 public class TbContentCategory implements Serializable {
+    private static final long serialVersionUID = 5547214474719801963L;
     /**
      * 类目ID
      */

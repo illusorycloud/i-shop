@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 @Table(name = "tb_item_desc")
 public class TbItemDesc implements Serializable {
+    private static final long serialVersionUID = -4010371489907305413L;
     /**
      * 商品ID
      */

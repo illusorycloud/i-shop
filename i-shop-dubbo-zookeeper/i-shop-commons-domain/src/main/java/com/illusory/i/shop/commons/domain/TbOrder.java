@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 @Table(name = "tb_order")
 public class TbOrder implements Serializable {
+    private static final long serialVersionUID = 6582821008223655156L;
     /**
      * 订单id
      */
