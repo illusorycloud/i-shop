@@ -21,11 +21,11 @@ public class SearchController {
     @Reference(version = "${services.versions.search.v1}")
     private SearchService searchService;
 
-    @RequestMapping(value = "/search/{query}/{page}/{size}", method = RequestMethod.GET)
+    @RequestMapping(value = "/search/{query}/{page}/{rows}", method = RequestMethod.GET)
     public List<TbItemResult> search(
             @PathVariable(required = true) String query,
             @PathVariable(required = true) int page,
-            @PathVariable(required = true) int size) {
-        return searchService.search(query, page, size);
+            @PathVariable(required = true) int rows) {
+        return searchService.search(query, page, rows);
     }
 }
